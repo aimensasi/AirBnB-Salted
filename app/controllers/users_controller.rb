@@ -1,8 +1,16 @@
 class UsersController < Clearance::UsersController
   
-
+  protect_from_forgery except: :show
 
   def show
+  end
+
+  def new
+    @user = User.new
+    respond_to do |format|
+      format.html {render template: 'users/new'}
+      format.js 
+    end
   end
 
   def create
