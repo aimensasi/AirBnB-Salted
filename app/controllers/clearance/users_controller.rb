@@ -7,7 +7,6 @@ class UsersController < Clearance::UsersController
   end
 
   def create
-    # puts "User #{user_from_params.inspect}"
     puts "Params #{user_params}"
 
 
