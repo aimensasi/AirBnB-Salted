@@ -5,14 +5,6 @@ class UsersController < Clearance::UsersController
   def show
   end
 
-  def new
-    @user = User.new
-    respond_to do |format|
-      format.html {render template: 'users/new'}
-      format.js 
-    end
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
