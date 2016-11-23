@@ -3,13 +3,16 @@ class UsersController < Clearance::UsersController
 
 
   def show
-    
   end
 
   def create
-    puts "Params #{user_params}"
+    @user = User.new(user_params)
+    if @user.save
+      
+    else
 
-
+    end
+    redirect_to root_url
   end
 
   def edit
