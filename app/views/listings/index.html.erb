@@ -36,7 +36,7 @@
 			    		<td><%= listing.country %></td>
 			    		<td><%= listing.state %></td>
 			    		<td><%= listing.zip_code %></td>
-			    		<td><%= listing.is_available %></td>
+			    		<td><%= listing.is_available ? 'Yes' : 'No' %></td>
 			    		<td><%= listing.check_in_time.to_s(:time) %></td>
 			    		<td><%= listing.check_out_time.to_s(:time) %></td>
 			    	</tr>
