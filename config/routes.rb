@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :listings
   
-  resources :users, only: [:show, :edit, :update, :destroy] 
+  resources :users, only: [:show, :edit, :update, :destroy, :create] 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

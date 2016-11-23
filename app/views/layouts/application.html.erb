@@ -8,21 +8,26 @@
 <body>
 
   <div class="container-fluid">
-    <div class="row header" id="header">
-      <% if signed_in? -%>
-        <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-      <% else -%>
-        <%= link_to t(".sign_in"), sign_in_path %>
-      <% end -%>  
-      <div id="flash">
-        <% flash.each do |key, value| -%>
-          <div id="flash_<%= key %>" class="alert alert-info"><%=h value %></div>
-        <% end %>
-      </div>
+    <div class="row header">
+      <nav class="navbar navbar-light bg-faded">
+        <div class="nav navbar-nav container flex">
+          <%= link_to("AirBnB", root_url, :class => "navbar-brand") %>
+          <a class="nav-item nav-link active" href="#">Home 
+          <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link" href="#">Pricing</a>
+          <% if  signed_in? %>
+            <%= link_to(current_user.name, user_path(current_user.id)) %>
+          <% else %>
+            <%= link_to("Sign Up", sign_up_path , :remote => true, :class => "nav-item nav-link") %>
+            <%= link_to("Sign In", sign_in_path , :remote => true, :class => "nav-item nav-link") %>
+          <% end %>
+        </div>
+      </nav>
     </div>
     <div class="row">
       <div class="container">
-        <%= yield %>      
+            
       </div>
     </div>
     <div class="row"></div>
@@ -31,3 +36,5 @@
   </div>
 </body>
 </html>
+
+
