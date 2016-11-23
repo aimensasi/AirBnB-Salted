@@ -9,7 +9,7 @@
 
   <div class="container-fluid">
     <div class="row header">
-      <nav class="navbar navbar-light bg-faded">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="nav navbar-nav container flex">
           <%= link_to("AirBnB", root_url, :class => "navbar-brand") %>
           <a class="nav-item nav-link active" href="#">Home 
@@ -26,8 +26,8 @@
       </nav>
     </div>
     <div class="row">
-      <div class="container">
-            
+      <div class="container d">
+          <%= yield %>
       </div>
     </div>
     <div class="row"></div>
