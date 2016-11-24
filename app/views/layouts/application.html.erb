@@ -27,7 +27,7 @@
             <a class="nav-item nav-link" href="#listings-row">Listings</a>
             <% if signed_in? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
                   <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
                   <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
@@ -82,103 +82,7 @@
           <button class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
           <button class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
           <div class="flex listing-row" id="listing-row">
-              
-              <div class="listing">
-                <div class="img">
-                  <img src="/assets/house_4.jpeg" alt="listing" width="350" height="233">
-                </div>
-                <div class="info flex">
-                  <span class="price">RM1200</span>
-                  <span class="type">Entire House In Milano</span>
-                </div>
-                <!-- Empty Star &#9734; -->
-                <!-- Full Star &#9733; -->
-                <div class="rating">
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="empty-star">&#9733;</span>
-                  <span>132 reviews</span>
-                </div>  
-              </div> <!-- listing -->
-              <div class="listing">
-                <div class="img">
-                  <img src="/assets/house_3.jpeg" alt="listing" width="350" height="233">
-                </div>
-                <div class="info flex">
-                  <span class="price">RM4700</span>
-                  <span class="type">Entire House In LA</span>
-                </div>
-                <!-- Empty Star &#9734; -->
-                <!-- Full Star &#9733; -->
-                <div class="rating">
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="empty-star">&#9734;</span>
-                  <span>132 reviews</span>
-                </div>  
-              </div> <!-- listing -->
-              <div class="listing">
-                <div class="img">
-                  <img src="/assets/house_2.jpeg" alt="listing" width="350" height="233">
-                </div>
-                <div class="info flex">
-                  <span class="price">RM700</span>
-                  <span class="type">Private Room In London</span>
-                </div>
-                <!-- Empty Star &#9734; -->
-                <!-- Full Star &#9733; -->
-                <div class="rating">
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="empty-star">&#9734;</span>
-                  <span>132 reviews</span>
-                </div>  
-              </div> <!-- listing -->
-              <div class="listing">
-                <div class="img">
-                  <img src="/assets/house_1.jpeg" alt="listing" width="350" height="233">
-                </div>
-                <div class="info flex">
-                  <span class="price">RM1700</span>
-                  <span class="type">Private Room In NYC</span>
-                </div>
-                <!-- Empty Star &#9734; -->
-                <!-- Full Star &#9733; -->
-                <div class="rating">
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="empty-star">&#9734;</span>
-                  <span>132 reviews</span>
-                </div>  
-              </div> <!-- listing -->  
-              <div class="listing">
-                <div class="img">
-                  <img src="/assets/house_5.jpeg" alt="listing" width="350" height="233">
-                </div>
-                <div class="info flex">
-                  <span class="price">RM2700</span>
-                  <span class="type">Private Room In KL</span>
-                </div>
-                <!-- Empty Star &#9734; -->
-                <!-- Full Star &#9733; -->
-                <div class="rating">
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="full-star">&#9733;</span>
-                  <span class="empty-star">&#9733;</span>
-                  <span>132 reviews</span>
-                </div>  
-              </div> <!-- listing -->
-              
+              <%= yield %>              
           </div>
         </div><!-- container -->
       </div> <!-- listings -->
