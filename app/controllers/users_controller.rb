@@ -2,6 +2,8 @@ class UsersController < Clearance::UsersController
   
   skip_before_action :require_login, :only => [:create]
 
+  layout 'alt_layout'
+
   def show
   end
 

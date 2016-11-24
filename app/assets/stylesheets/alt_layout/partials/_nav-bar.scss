@@ -1,0 +1,40 @@
+.navbar{
+	background: transparent !important;
+	padding: 0;
+	border-bottom: 1px solid $border-color;
+}
+
+.nav {
+	a{
+		color: $placeholder-color !important;
+		margin-right: 30px;
+	}
+	.navbar-brand{
+		margin-left: 20px;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	.nav-link{
+		margin-top: 25px;
+	}
+}
+
+.search-nav{
+	border: none;
+	border-left: 1px solid $border-color;
+	width: 60%;
+	.group-form{
+		margin-top: 20px;
+		margin-left: 24px;
+	}
+	.search-box{
+		width: 85%;
+	  margin-left: 15px;
+	  height: 40px;
+	  border: none;
+	  padding-top: 10px;
+	}
+	.search-icon{
+		margin-top: 2px;
+	}
+}
