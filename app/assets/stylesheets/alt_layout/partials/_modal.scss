@@ -8,6 +8,7 @@
 	  background: #4568b2;
 	  text-align: left;
 	  font-weight: 200;
+	  padding-top: 19px;
 	  i{
 	  	margin-right: 13px;
 	  	margin-left: 84px;
@@ -51,18 +52,18 @@
 	}
 }
 
-.sign-in-form {
+.sign-in-form{
 	.form-in{
-		border: 1px solid $border-secondary;
-	}	
-	.form-in .fa-lg{
-		color: $border-secondary;
-		margin-top: 20px;
-		margin-right: 20px;
-	}
-	.form-in .form-control{
-		border: none;
-		height: 56px;
+		border: 1px solid #7d7d7d;
+		.fa-lg{
+			color: #7d7d7d;
+			margin-top: 20px;
+			margin-right: 20px;
+		}
+		.form-control{
+			border: none;
+			height: 56px;
+		}
 	}
 	.submit{
 			width: 100%;
@@ -70,10 +71,6 @@
 		  border: none;
 		  color: #fff;
 		  font-weight: 200;
-		  background: $airbnb-color;
+		  background: #ff5a5f;
 	}
 }
-
-
-
-

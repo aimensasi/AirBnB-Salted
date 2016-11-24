@@ -20,18 +20,29 @@
         <nav class="navbar navbar-dark bg-inverse">
           <div class="nav navbar-nav flex">
             <a class="navbar-brand" href="/">
-              <img src="images/logo.png" width="40" height="40" alt="logo">
+              <img src="/assets/logo.png" width="40" height="40" alt="logo">
             </a>
             <form class="search-nav">
               <div class="group-form flex">
-                <i class="search-icon"><img src="images/search_icon.png" width="30" height="30"></i>
+                <i class="search-icon"><img src="/assets/search_icon.png" width="30" height="30"></i>
                 <input type="text" name="query" class="search-box" placeholder="Search...">  
               </div>
             </form>
             <a class="nav-item nav-link active" href="#">Become a Host <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#listings-row">Listings</a>
-            <%= link_to("Sign Sign", sign_up_path , :class => "nav-item nav-link") %>
-            <%= link_to("Sign Up", sign_in_path , :class => "nav-item nav-link") %>
+            
+            <% if signed_in? %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="user_menu">
+                  <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+                  <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
+                </div>
+              </li>
+            <% else %>
+              <%= link_to("Sign Sign", sign_up_path, :remote => true , :class => "nav-item nav-link") %>
+              <%= link_to("Sign Up", sign_in_path, :remote => true, :class => "nav-item nav-link") %>
+            <% end %>
           </div>
         </nav>
       </div>
@@ -43,7 +54,7 @@
       <div class="row footer">
         <footer class="container flex">
           <div class="footer-logo flex">
-            <img src="images/logo.png" alt="logo" width="30" height="30">
+            <img src="/assets/logo.png" alt="logo" width="30" height="30">
             <h1>@ Airbnb, Inc.</h1>
           </div>
           <div class="footer-nav">

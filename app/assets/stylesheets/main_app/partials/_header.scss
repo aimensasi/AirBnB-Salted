@@ -1,0 +1,38 @@
+.header{
+	background: url(/assets/posters_sm.jpg);
+	background-position: bottom center !important;
+  background-size: 1600px auto !important;
+  background-repeat: repeat-x !important;
+	left: -60px !important;
+	height: 555px;
+	.content{ 
+		.title{
+			font-size: 48px;
+			margin-left: 50px;
+			margin-top: 60px;
+		}
+		.leads{
+			font-size: 20px;
+			color: #7d7d7d;
+			margin-left: 55px;
+		}
+	}
+}
+
+.navbar-brand{
+	margin-right: auto;
+	margin-left: 20px;
+}
+
+.navbar{
+	background: transparent !important;
+}
+
+.nav {
+	a:not(.navbar-brand){
+		color: #222 !important;
+		margin-right: 30px;
+	}
+}
+
+
