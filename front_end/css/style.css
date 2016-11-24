@@ -1,0 +1,161 @@
+*{
+	outline: 0 !important;
+}
+
+body{
+	font-family: sans-serif;
+}
+
+
+/*Base*/
+
+.flex{
+	display: flex;
+	flex-direction: row;
+}
+.flex-col{
+	flex-direction: column;
+}
+
+.full-star, .empty-star{
+	color: #008489;
+}
+
+
+.header{
+	background: url(images/posters_sm.jpg);
+	background-position: bottom center !important;
+  background-size: 1600px auto !important;
+  background-repeat: repeat-x !important;
+	left: -60px !important;
+	height: 555px;
+}
+
+.navbar-brand{
+	margin-right: auto;
+	margin-left: 20px;
+}
+
+.navbar{
+	background: transparent !important;
+}
+
+.nav a:not(.navbar-brand){
+	color: #222 !important;
+	margin-right: 30px;
+}
+
+.header .content .title{
+	font-size: 48px;
+	margin-left: 50px;
+	margin-top: 60px;
+}
+
+.header .content .leads{
+	font-size: 20px;
+	color: #7d7d7d;
+	margin-left: 55px;
+}
+
+.search-bar .search-box{
+	margin-top: 70px;
+	height: 70px;
+	border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #eee;
+  width: 1050px;
+}
+
+.search-bar 
+.search-box 
+.where{
+	border: none;
+	border-right: 
+}
+.search-bar 
+.search-box 
+.where label{
+	padding-top: 0;
+  padding-bottom: 0;
+  font-size: 15px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.search-bar 
+.search-box 
+.where input{
+	border: none;
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.listings{
+	margin-top: 50px;
+	position: relative;
+}
+
+.listings .listing-row{
+
+}
+
+.owl-page{
+	display: none !important;
+}
+
+.listings .title{
+	color: #484848;
+	font-size: 22px;
+	margin-bottom: 50px;
+}
+.listings .info{
+	margin-top: 8px;
+}
+.listings .price{
+	font-size: 14px;
+	color: #484848;
+	font-weight: 700;
+}
+
+.listings .type{
+	color: #484848;
+	font-size: 15px;
+	font-weight: 200;
+	margin-left: 10px;
+}
+
+.listings .rating span{
+	font-size: 13px;
+}
+
+.listings .prev,
+.listings .next{
+	position: absolute;
+	top: 174px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.listings .prev i,
+.listings .next i{
+	color: #7d7d7d;
+	font-size: 50px;
+}
+
+.listings .next{
+	right: 70px;
+}
+
+.listings .prev{
+	left: 50px;
+}
+
+
+
+
+
+
+
+
+

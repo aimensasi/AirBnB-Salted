@@ -17,14 +17,27 @@
           <a class="nav-item nav-link" href="#">Features</a>
           <a class="nav-item nav-link" href="#">Pricing</a>
           <% if  signed_in? %>
-            <%= link_to(current_user.name, user_path(current_user.id)) %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= link_to current_user.name, 
+                    user_path(current_user.id), 
+                    :class => "nav-item nav-link" %>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="user">
+                <%= link_to "Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+                <%= link_to "Your Listings", 
+                    edit_user_path(current_user, :anchor => "listings"),
+                    :class => "dropdown-item") %>
+                <%= link_to "Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+              </div>
+            </div>
           <% else %>
             <%= link_to("Sign Up", sign_up_path , :remote => true, :class => "nav-item nav-link") %>
             <%= link_to("Sign In", sign_in_path , :remote => true, :class => "nav-item nav-link") %>
           <% end %>
         </div>
       </nav>
-    </div>
+    </div> <!-- header -->
     <div class="row">
       <div class="container d">
           <%= yield %>
