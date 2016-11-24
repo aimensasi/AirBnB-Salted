@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
   include Clearance::User
-  
-  PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}\z/
 
+
+  PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}\z/
+  
+  mount_uploaders :avatars, AvatarUploader
+  
   has_many :authentications, :dependent => :destroy
   has_many :listings
   
@@ -10,8 +13,6 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true, :length => {:maximum => 70}
   validates :password, :presence => true, :length => {:maximum => 70, :minimum => 8},
             :format => {:with => PASSWORD_REGEX, :message => "Password Must Contain 1 Capital Letter 1 small Letter and numbers"}
-
-
 
 
 

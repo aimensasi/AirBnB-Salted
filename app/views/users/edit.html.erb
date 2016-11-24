@@ -1,1 +1,6 @@
+<h2>Add A profile Image</h2>
+
+<%= form_for @user do |form| %>
+	<%= form.file_field :avatars, multiple: true %>
+<% end %>
 

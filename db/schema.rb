@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124075307) do
+ActiveRecord::Schema.define(version: 20161124081752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20161124075307) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "listing_images", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "img_url",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "listing_images", ["listing_id"], name: "index_listing_images_on_listing_id", using: :btree
 
   create_table "listings", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,5 +82,6 @@ ActiveRecord::Schema.define(version: 20161124075307) do
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "users"
 end
