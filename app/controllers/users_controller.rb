@@ -9,18 +9,12 @@ class UsersController < Clearance::UsersController
 
   def create
     @user = User.new(user_params)
-    puts "In"
-    puts "User #{@user}"
-      if @user.save
-        sign_in @user
-        puts "Url After #{url_after_create}"
-        redirect_back_or url_after_create
-      else
-        puts "Url After ##### #{url_after_create}"
-        puts "Url After ##### #{@user.errors.full_messages}"
-        redirect_to root_url
-      end  
-      
+    if @user.save
+      sign_in @user
+      redirect_back_or url_after_create
+    else
+      redirect_to root_url
+    end
   end
 
   def edit
