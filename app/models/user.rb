@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
 
   PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}\z/
   
-  mount_uploaders :avatars, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
   
   has_many :authentications, :dependent => :destroy
-  has_many :listings
+  has_many :listings, :dependent => :destroy
   
   validates :first_name, :presence => true, :length => {:maximum => 70}
   validates :last_name, :presence => true, :length => {:maximum => 70}
