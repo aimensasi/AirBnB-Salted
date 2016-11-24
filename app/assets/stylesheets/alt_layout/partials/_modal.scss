@@ -1,0 +1,76 @@
+.modal-content{
+	width: 495px;
+	padding: 30px;
+	margin: 30px auto 50px;
+	.btn-fb{
+		width: 100%;
+	  height: 60px;
+	  background: #4568b2;
+	  text-align: left;
+	  font-weight: 200;
+	  padding-top: 19px;
+	  i{
+	  	margin-right: 13px;
+	  	margin-left: 84px;
+	  }
+	}
+	.divider{
+		position: relative;
+		width: 100%;
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		color: $border-secondary;
+		&::after, 
+		&::before{
+			content: '';
+			position: absolute;
+			background: $border-secondary;
+			height: 1px;
+			top: 12px;
+			width: 173px;
+		}
+		&::after{
+			right: 1px;
+		}
+		&::before{
+			left: 1px;
+		}
+	}
+	.group-option{
+		margin-top: 30px;
+		.title{
+			margin-top: 10px;
+		}
+		.btn-sign-up{
+			border: 1px solid $airbnb-color;
+			background: transparent;
+			color: $airbnb-color;
+			margin-left: auto;
+			font-weight: 200;
+		}
+	}
+}
+
+.sign-in-form{
+	.form-in{
+		border: 1px solid #7d7d7d;
+		.fa-lg{
+			color: #7d7d7d;
+			margin-top: 20px;
+			margin-right: 20px;
+		}
+		.form-control{
+			border: none;
+			height: 56px;
+		}
+	}
+	.submit{
+			width: 100%;
+		  height: 60px;
+		  border: none;
+		  color: #fff;
+		  font-weight: 200;
+		  background: #ff5a5f;
+	}
+}

@@ -1,0 +1,28 @@
+
+.search-bar {
+	.search-box{
+		margin-top: 70px;
+		height: 70px;
+		border: 1px solid #ccc;
+	  border-radius: 4px;
+	  box-shadow: 0 1px 3px 0 #eee;
+	  width: 1050px;
+	  .where{
+	  	border: none;
+	  	border-right: 
+	  	label{
+	  		padding-top: 0;
+	  	  padding-bottom: 0;
+	  	  font-size: 15px;
+	  	  letter-spacing: -0.5px;
+	  	  white-space: nowrap;
+	  	}
+	  	input{
+	  		border: none;
+	  		border-right: 0;
+	  		border-top-right-radius: 0;
+	  		border-bottom-right-radius: 0;
+	  	}
+	  }
+	}
+}

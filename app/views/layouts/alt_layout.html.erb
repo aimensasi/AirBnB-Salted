@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Welcome to the world of trips.</title>
+    <link rel="icon" href="https://www.airbnb.com/favicon.ico">
+
+    <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
+    <%= stylesheet_link_tag 'alt_layout/application' %>
+  </head>
+  <body>
+    
+
+    <div class="container-fluid flex flex-col">
+      <div class="row header">
+        <nav class="navbar navbar-dark bg-inverse">
+          <div class="nav navbar-nav flex">
+            <a class="navbar-brand" href="/">
+              <img src="/assets/logo.png" width="40" height="40" alt="logo">
+            </a>
+            <form class="search-nav">
+              <div class="group-form flex">
+                <i class="search-icon"><img src="/assets/search_icon.png" width="30" height="30"></i>
+                <input type="text" name="query" class="search-box" placeholder="Search...">  
+              </div>
+            </form>
+            <a class="nav-item nav-link active" href="#">Become a Host <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#listings-row">Listings</a>
+            
+            <% if signed_in? %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="user_menu">
+                  <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+                  <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
+                </div>
+              </li>
+            <% else %>
+              <%= link_to("Sign Sign", sign_up_path, :remote => true , :class => "nav-item nav-link") %>
+              <%= link_to("Sign Up", sign_in_path, :remote => true, :class => "nav-item nav-link") %>
+            <% end %>
+          </div>
+        </nav>
+      </div>
+      <div class="row content">
+        <div class="header">
+            <%= yield %>
+        </div>
+      </div>
+      <div class="row footer">
+        <footer class="container flex">
+          <div class="footer-logo flex">
+            <img src="/assets/logo.png" alt="logo" width="30" height="30">
+            <h1>@ Airbnb, Inc.</h1>
+          </div>
+          <div class="footer-nav">
+            <a class="nav-item nav-link" href="https://www.airbnb.com/terms">Term & Privacy</a>
+            <a class="nav-item nav-link" href="https://www.facebook.com/AirbnbMalaysia/?brand_redir=324826532457">
+              <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+            </a>
+            <a class="nav-item nav-link" href="https://www.instagram.com/airbnb/">
+              <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+
+
+  </div> 
+
+ </div> --> 
+
+
+
+
+
+
+
+

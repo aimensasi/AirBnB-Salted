@@ -1,18 +1,26 @@
 class UsersController < Clearance::UsersController
   
-  protect_from_forgery except: :show
+  skip_before_action :require_login, :only => [:create]
+
+  layout 'alt_layout'
 
   def show
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    puts "In"
+    puts "User #{@user}"
+      if @user.save
+        sign_in @user
+        puts "Url After #{url_after_create}"
+        redirect_back_or url_after_create
+      else
+        puts "Url After ##### #{url_after_create}"
+        puts "Url After ##### #{@user.errors.full_messages}"
+        redirect_to root_url
+      end  
       
-    else
-
-    end
-    redirect_to root_url
   end
 
   def edit
