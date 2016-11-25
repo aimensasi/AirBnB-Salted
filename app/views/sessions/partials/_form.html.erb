@@ -1,5 +1,8 @@
 <div class="modal-content">
   <div class="modal-body">
+    <% if  flash[:notice] %>
+      <div class="alert-box"><h2><%= flash[:notice] %></h2></div>
+    <% end %>
     <%= link_to '/auth/facebook' , :class => "btn btn-primary btn-fb" do %>
       <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
       Log In With Facebook

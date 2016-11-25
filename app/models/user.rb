@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   
   validates :first_name, :presence => true, :length => {:maximum => 70}
   validates :last_name, :presence => true, :length => {:maximum => 70}
-  validates :password, :presence => true, :length => {:maximum => 70, :minimum => 8},
-            :format => {:with => PASSWORD_REGEX, :message => "Password Must Contain 1 Capital Letter 1 small Letter and numbers"}
+  validates :password, :presence => true, :length => {:maximum => 70, :minimum => 8, :message => "invalid password"},
+            :format => {:with => PASSWORD_REGEX, :message => "invalid password"}
 
 
 

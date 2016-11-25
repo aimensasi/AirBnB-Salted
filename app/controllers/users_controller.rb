@@ -1,19 +1,34 @@
 class UsersController < Clearance::UsersController
   
-  skip_before_action :require_login, :only => [:create]
-
+  skip_before_action :require_login, :only => [:create, :new]
   layout 'alt_layout'
-
+  
   def show
+  end
+
+  def new
+    @user = User.new
+
+    respond_to do |format|
+      format.html { render 'new' }
+      format.js
+    end
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      redirect_back_or url_after_create
-    else
-      redirect_to root_url
+
+    respond_to do |format|
+
+      if @user.save
+        sign_in @user
+        format.html { redirect_back_or url_after_create }
+        format.js { redirect_back_or url_after_create }
+      else
+        flash.now[:notice] = @user.errors.full_messages.first
+        format.html { render :action => :new }
+        format.js
+      end  
     end
   end
 
