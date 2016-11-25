@@ -1,1 +1,11 @@
-$('#sign-up-form').modal('show');
+$('body').append('<%= j render partial: '/users/partials/form_dialog' %>');
+
+var $alertBox = $('.alert-box');
+
+if ($alertBox.children().length > 0) {
+	$alertBox.empty();
+	$alertBox.css('opacity', '0');
+}
+
+
+$('#sign-up').modal('show');

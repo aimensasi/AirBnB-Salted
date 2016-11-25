@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  skip_before_action :require_login, :only => [:index]
   
   def index
     @listings = Listing.paginate(:page => params[:page])
