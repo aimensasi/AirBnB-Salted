@@ -200,11 +200,8 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
-  mini_magick
-=======
   jquery-turbolinks
->>>>>>> master
+  mini_magick
   omniauth
   omniauth-facebook
   pg (~> 0.15)

@@ -1,25 +1,4 @@
 <% @listings.each_with_index do |listing, index| %>
-<<<<<<< HEAD
-	<div class="listing">
-	  <div class="img">
-	    <img src="/assets/house_5.jpeg" alt="listing" width="350" height="233">
-	  </div>
-	  <div class="info flex">
-	    <span class="price"><%= number_to_currency listing.price_per_night %></span>
-	    <span class="type"><%= listing.room_type %> <%= listing.house_type %> In <%= listing.state %></span>
-	  </div>
-	  <!-- Empty Star &#9734; -->
-	  <!-- Full Star &#9733; -->
-	  <div class="rating">
-	    <span class="full-star">&#9733;</span>
-	    <span class="full-star">&#9733;</span>
-	    <span class="full-star">&#9733;</span>
-	    <span class="full-star">&#9733;</span>
-	    <span class="empty-star">&#9733;</span>
-	    <span>166 reviews</span>
-	  </div>  
-	</div>
-=======
 		<div class="listing">
 		  <div class="img">
 		    <img src="/assets/house_4.jpeg" alt="listing" width="350" height="233">
@@ -39,5 +18,4 @@
 		    <span>166 reviews</span>
 		  </div>  
 		</div> <!-- listing -->
->>>>>>> master
 <% end %>

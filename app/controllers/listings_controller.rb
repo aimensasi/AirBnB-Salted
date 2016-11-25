@@ -18,8 +18,11 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listings_params)
-
+    avatars_params = params[:listing][:avatars]
     if @listing.save
+      avatars_params.each do |avatar|
+        @listing.avatars.create!(:avatar => avatar)
+      end
       flash.now.notice = "Listing Was added Successfully"
       redirect_to user_path(current_user)
     else
