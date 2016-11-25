@@ -6,12 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Welcome to the world of trips.</title>
-    <link rel="icon" href="https://www.airbnb.com/favicon.ico">
-    <script src="https://use.fontawesome.com/586a7bc924.js"></script>
     <%= csrf_meta_tags %>
+    <link rel="icon" href="https://www.airbnb.com/favicon.ico">
+    <title>Welcome to the world of trips.</title>
     <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
-    <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag 'alt_layout/application' %>
   </head>
   <body>
@@ -43,8 +41,8 @@
                 </div>
               </li>
             <% else %>
-              <%= link_to("Sign Up", sign_up_path, :remote => true , :class => "nav-item nav-link") %>
-              <%= link_to("Sign In", sign_in_path, :remote => true, :class => "nav-item nav-link") %>
+              <%= link_to("Sign Up", sign_up_path, :class => "nav-item nav-link") %>
+              <%= link_to("Sign In", sign_in_path, :class => "nav-item nav-link") %>
             <% end %>
           </div>
         </nav>
@@ -72,7 +70,10 @@
         </footer>
       </div>
     </div>
+      <%= javascript_include_tag 'application' %>
     </body>
+
+       
 </html>
 
 

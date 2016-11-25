@@ -2,8 +2,7 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Clearance::SessionsController.layout "alt_layout"
-Clearance::UsersController.layout "alt_layout"
-
+# Clearance::UsersController.layout "alt_layout"
 
 Rails.application.config.assets.version = '1.0'
 

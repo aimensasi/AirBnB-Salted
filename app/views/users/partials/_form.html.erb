@@ -1,12 +1,14 @@
 <div class="modal-content">
   <div class="modal-body">
-    <div class="alert-box"></div>
+    <% if  flash[:notice] %>
+      <div class="alert-box"><h2><%= flash[:notice] %></h2></div>
+    <% end %>
     <%= link_to '/auth/facebook' , :class => "btn btn-primary btn-fb" do %>
       <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
       Log In With Facebook
     <% end %>
     <div class="divider">Or</div>
-    <%= form_for @user, :remote => true, authenticity_token: true, :html => {:class => "sign-in-form"} do |form|%>
+    <%= form_for @user, authenticity_token: true, :html => {:class => "sign-in-form"} do |form|%>
       <div class="form-group form-in flex">
         <%= form.text_field :email, type: 'email', class: 'form-control', placeholder: 'Email Address' %>
         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>

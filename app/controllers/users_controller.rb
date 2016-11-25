@@ -1,9 +1,8 @@
 class UsersController < Clearance::UsersController
   
   skip_before_action :require_login, :only => [:create, :new]
-
   layout 'alt_layout'
-
+  
   def show
   end
 
@@ -23,15 +22,14 @@ class UsersController < Clearance::UsersController
       if @user.save
         sign_in @user
         format.html { redirect_back_or url_after_create }
-        format.js
+        format.js { redirect_back_or url_after_create }
       else
-        format.html { render 'new' }
+        flash.now[:notice] = @user.errors.full_messages.first
+        format.html { render :action => :new }
         format.js
       end  
 
     end
-
-    
   end
 
   def edit
