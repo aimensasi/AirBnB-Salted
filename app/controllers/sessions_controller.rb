@@ -20,4 +20,9 @@ class SessionsController < Clearance::SessionsController
      sign_in(@user)
      redirect_to @next, :notice => @notice
    end
+
+   def destroy
+     sign_out
+     redirect_back_or root_url
+   end
 end

@@ -1,6 +1,4 @@
 Clearance.configure do |config|
+  config.routes = false
   config.mailer_sender = "reply@example.com"
 end
-
-Clearance::SessionsController.layout "alt_layout"
-Clearance::UsersController.layout "alt_layout"
