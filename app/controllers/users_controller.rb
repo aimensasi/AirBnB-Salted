@@ -23,11 +23,12 @@ class UsersController < Clearance::UsersController
       if @user.save
         sign_in @user
         format.html { redirect_back_or url_after_create }
-        format.js { redirect_back_or url_after_create }
+        format.js
       else
         format.html { render 'new' }
         format.js
       end  
+
     end
 
     
