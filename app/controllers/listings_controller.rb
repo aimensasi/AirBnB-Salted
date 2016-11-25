@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   skip_before_action :require_login, :only => [:index]
   
   def index
-    @listings = Listing.paginate(:page => params[:page])
+    @listings = Listing.top
   end
 
   def show
@@ -10,9 +10,13 @@ class ListingsController < ApplicationController
   end
 
   def new
+    @listing = Listing.new
+    render 'new', :layout => 'alt_layout'
   end
 
   def create
+    puts "Listings #{params.inspect}"
+    return
   end
 
   def edit
