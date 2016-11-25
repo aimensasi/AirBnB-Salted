@@ -1,2 +1,136 @@
-<h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+<div class="form-group container">
+	<%= form_for @listing do |form|%>
+
+		<div class="form-group row">
+		    <label for="property_type" class="col-xs-2 col-form-label">Property Type</label>
+		    <div class="col-xs-10">
+		    <%= form.select :property_type, 
+		    options_for_select(['House', 'Apartment']), {:include_blank => true}, :class => 'form-control' %>
+		    </div>
+		</div>
+
+		<div class="form-group row">
+		    <label for="room_type" class="col-xs-2 col-form-label">Room Type</label>
+		    <div class="col-xs-10">
+		    <%= form.select :room_type, 
+		    options_for_select(['Shared Room', 'Private Room', 'Entire Home']), {:include_blank => true}, :class => 'form-control' %>
+		    </div>
+		</div>
+		
+		<div class="form-group row">
+		    <label for="beds_number" class="col-xs-2 col-form-label">Number Of Bathrooms</label>
+		    <div class="col-xs-10">
+		    <%= form.select :beds_number, 
+		    options_for_select(1..15, 3), {}, :class => 'form-control' %>
+		    </div>
+		</div>
+
+		<div class="form-group row">
+		    <label for="bathrooms_number" class="col-xs-2 col-form-label">Number Of Beds</label>
+		    <div class="col-xs-10">
+		    <%= form.select :bathrooms_number, 
+		    options_for_select(1..15, 2), {}, :class => 'form-control' %>
+		    </div>
+		</div>
+		
+		<div class="form-group row">
+		    <label for="bathrooms_number" class="col-xs-2 col-form-label">Number Of Guests</label>
+		    <div class="col-xs-10">
+		    <%= form.select :bathrooms_number, 
+		    options_for_select(1..16, 2), {}, :class => 'form-control' %>
+		    </div>
+		</div>
+		
+
+		<div class="form-group row">
+		  <label for="price_per_night" class="col-xs-2 col-form-label">Price Per Night</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :price_per_night, 
+						:class => "form-control", :id => "price_per_night" %>	
+		  </div>
+		</div>
+
+		<div class="form-group row">
+		  <label for="check_in_time" class="col-xs-2 col-form-label">Check In Time</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :check_in_time, :type => 'time', 
+						:class => "form-control", :value => "14:00:00", :id => "check_in_time" %>	
+		  </div>
+		</div>
+
+		<div class="form-group row">
+		  <label for="check_out_time" class="col-xs-2 col-form-label">Check Out Time</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :check_out_time, :type => 'time', 
+						:class => "form-control", :value => "14:00:00", :id => "check_out_time" %>	
+		  </div>
+		</div>
+
+		<div class="form-group row">
+		  <label for="country" class="col-xs-2 col-form-label">Country</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :country, 
+						:class => "form-control", :id => "country" %>	
+		  </div>
+		</div>
+
+		<div class="form-group row">
+		  <label for="state" class="col-xs-2 col-form-label">State</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :state, 
+						:class => "form-control", :id => "state" %>	
+		  </div>
+		</div>
+
+		<div class="form-group row">
+		  <label for="zip_code" class="col-xs-2 col-form-label">Zip Code</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :zip_code, 
+						:class => "form-control", :id => "zip_code" %>	
+		  </div>
+		</div>
+		
+		<div class="form-group row">
+		  <label for="address" class="col-xs-2 col-form-label">Street Address</label>
+		  <div class="col-xs-10">
+		    <%= form.text_field :address, 
+						:class => "form-control", :id => "address" %>	
+		  </div>
+		</div>
+
+		
+
+		<div class="form-group row">
+			<label class="col-xs-2 col-form-label">Facilities</label>
+			<div class="col-xs-10">
+					<label class="form-check-inline">
+							<%= form.check_box :smoker, :class => "form-check-input" %> Smoking
+					</label>
+					<label class="form-check-inline">
+							<%= form.check_box :wifi, :class => "form-check-input" %> Wifi
+					</label>
+					<label class="form-check-inline">
+							<%= form.check_box :air_con, :class => "form-check-input" %> Air Conditional
+					</label>
+					<label class="form-check-inline">
+							<%= form.check_box :pool, :class => "form-check-input" %> Pool
+					</label>
+					<label class="form-check-inline">
+							<%= form.check_box :tv, :class => "form-check-input" %> Tv
+					</label>
+					<label class="form-check-inline">
+							<%= form.check_box :Kitchen, :class => "form-check-input" %> Kitchen
+					</label>
+			</div>
+
+			<div class="form-group row">
+				<!-- <label for="avatars" class="col-xs-2 col-form-label">Add Images</label> -->
+					<div class="col-xs-10">
+						<%= form.file_field :avatars, multiple: true, :class => "form-control-file" %>		
+					</div>
+				</div>		
+			</div>
+		 
+		<%= form.submit %>
+	<% end %>
+</div>

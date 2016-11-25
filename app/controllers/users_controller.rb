@@ -17,6 +17,7 @@ class UsersController < Clearance::UsersController
 
   def create
     @user = User.new(user_params)
+
     respond_to do |format|
 
       if @user.save
@@ -28,7 +29,6 @@ class UsersController < Clearance::UsersController
         format.html { render :action => :new }
         format.js
       end  
-
     end
   end
 

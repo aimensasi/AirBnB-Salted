@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123000026) do
+ActiveRecord::Schema.define(version: 20161125074214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,19 @@ ActiveRecord::Schema.define(version: 20161123000026) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "listing_images", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "img_url",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "listing_images", ["listing_id"], name: "index_listing_images_on_listing_id", using: :btree
+
   create_table "listings", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "room_type",        null: false
-    t.string   "house_type",       null: false
+    t.string   "room_type",                    null: false
+    t.string   "property_type",                null: false
     t.string   "price_per_night"
     t.integer  "beds_number"
     t.integer  "bathrooms_number"
@@ -42,17 +51,23 @@ ActiveRecord::Schema.define(version: 20161123000026) do
     t.boolean  "is_available"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "smoker",           default: 0
+    t.integer  "wifi",             default: 0
+    t.integer  "pool",             default: 0
+    t.integer  "tv",               default: 0
+    t.integer  "Kitchen",          default: 0
+    t.integer  "air_con",          default: 0
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "email",                                      null: false
+    t.string   "encrypted_password", limit: 128,             null: false
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
+    t.string   "remember_token",     limit: 128,             null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "birthday"
@@ -61,10 +76,13 @@ ActiveRecord::Schema.define(version: 20161123000026) do
     t.string   "state"
     t.string   "country"
     t.string   "zip_code"
+    t.integer  "is_admin",                       default: 0
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
+  add_foreign_key "listing_images", "listings"
   add_foreign_key "listings", "users"
 end
