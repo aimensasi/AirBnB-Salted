@@ -36,8 +36,8 @@
                 </div>
               </li>
             <% else %>
-              <%= link_to("Sign Up", sign_up_path, :class => "nav-item nav-link") %>
-              <%= link_to("Sign In", sign_in_path, :class => "nav-item nav-link") %>
+              <%= link_to("Sign Up", sign_up_path, :remote => true, :class => "nav-item nav-link") %>
+              <%= link_to("Sign In", sign_in_path, :remote => true, :class => "nav-item nav-link") %>
             <% end %>
           </div>
         </nav>
