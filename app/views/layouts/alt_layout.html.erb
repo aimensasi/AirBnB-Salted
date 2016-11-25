@@ -8,7 +8,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Welcome to the world of trips.</title>
     <link rel="icon" href="https://www.airbnb.com/favicon.ico">
-
+    <script src="https://use.fontawesome.com/586a7bc924.js"></script>
+    <%= csrf_meta_tags %>
     <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
     <%= stylesheet_link_tag 'alt_layout/application' %>
   </head>
@@ -36,7 +37,8 @@
                 <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
                   <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
-                  <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "dropdown-item" %>
+                  <%= link_to t(".sign_out"), sign_out_path, 
+                      method: :delete, :class => "dropdown-item" %>
                 </div>
               </li>
             <% else %>
@@ -71,32 +73,6 @@
     </div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button> -->
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-
-  <div class="modal-dialog" role="document">
-
-
-  </div> 
-
- </div> --> 
-
-
 
 
 

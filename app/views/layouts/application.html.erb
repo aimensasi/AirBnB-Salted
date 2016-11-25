@@ -9,7 +9,7 @@
     <title>Welcome to the world of trips.</title>
     <link rel="icon" href="https://www.airbnb.com/favicon.ico">
     <script src="https://use.fontawesome.com/586a7bc924.js"></script>
-
+    <%= csrf_meta_tags %>
     <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
     <%= stylesheet_link_tag 'main_app/application' %>
   </head>
@@ -30,13 +30,13 @@
                 <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
                   <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
-                  <%= button_to t(".sign_out"), sign_out_path, method: :delete, :class => "dropdown-item" %>
-
+                  <%= link_to t(".sign_out"), sign_out_path, 
+                      method: :delete, :class => "dropdown-item" %>
                 </div>
               </li>
             <% else %>
-              <%= link_to("Sign Up", sign_up_path, :class => "nav-item nav-link") %>
-              <%= link_to("Sign In", sign_in_path, :class => "nav-item nav-link") %>
+              <%= link_to("Sign Up", sign_up_path, :remote => true , :class => "nav-item nav-link") %>
+              <%= link_to("Sign In", sign_in_path, :remote => true, :class => "nav-item nav-link") %>
             <% end %>
           </div>
         </nav>

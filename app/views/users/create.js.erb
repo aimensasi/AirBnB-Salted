@@ -1,0 +1,11 @@
+var $alertBox = $('.alert-box');
+
+if ($alertBox.children().length > 0) {
+	$('.alert-box').empty();
+}
+
+$alertBox.append('<h2 class="error"> <%= @user.errors.full_messages.first %> </h2>')
+				 .css('opacity', '1');
+
+
+
