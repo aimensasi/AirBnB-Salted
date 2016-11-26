@@ -48,6 +48,9 @@ gem 'jquery-turbolinks'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 #mini magic
 gem 'mini_magick'
+#Fog for cloud computing
+# gem 'fog'
+gem 'fog-aws'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
