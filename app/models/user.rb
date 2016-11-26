@@ -1,17 +1,18 @@
 class User < ActiveRecord::Base
   include Clearance::User
-  
-  PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}\z/
 
+
+  PASSWORD_REGEX = /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}\z/
+  
+  mount_uploader :avatar, AvatarUploader
+  
   has_many :authentications, :dependent => :destroy
-  has_many :listings
+  has_many :listings, :dependent => :destroy
   
   validates :first_name, :presence => true, :length => {:maximum => 70}
   validates :last_name, :presence => true, :length => {:maximum => 70}
   validates :password, :presence => true, :length => {:maximum => 70, :minimum => 8, :message => "invalid password"},
             :format => {:with => PASSWORD_REGEX, :message => "invalid password"}
-
-
 
 
 

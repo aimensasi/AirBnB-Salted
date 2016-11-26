@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   skip_before_action :require_login, :only => [:index]
   
+  layout :resolve_layout
+
   def index
     @listings = Listing.top
   end
@@ -16,8 +18,12 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listings_params)
-
+    avatars_params = params[:listing][:avatars]
+    @listing.user = current_user
     if @listing.save
+      avatars_params.each do |avatar|
+        @listing.avatars.create!(:avatar => avatar)
+      end
       flash.now.notice = "Listing Was added Successfully"
       redirect_to user_path(current_user)
     else
@@ -42,6 +48,18 @@ class ListingsController < ApplicationController
             :guest_no, :check_in_time, :check_out_time, :country, :state, :zip_code,
             :address, :is_available, :smoker, :wifi, :pool, :tv, :Kitchen, :air_con)
   end
+
+  def resolve_layout
+    # puts "action_name #{action_name}"
+    case action_name
+
+    when "new", "show", "edit", "create"
+      "alt_layout"
+    when "index"
+      "application"
+    end
+  end  
+  
 end
 
 # t.string   "room_type",                  

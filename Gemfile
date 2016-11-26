@@ -44,6 +44,14 @@ gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#carrierwave for uploading images
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+#mini magic
+gem 'mini_magick'
+#Fog for cloud computing
+# gem 'fog'
+gem 'fog-aws'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

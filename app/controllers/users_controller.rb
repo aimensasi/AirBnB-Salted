@@ -38,6 +38,14 @@ class UsersController < Clearance::UsersController
   end
 
   def update
+    @user = User.find_by_id(params[:id])
+    @user.avatar = params[:user][:avatar]
+    if @user.save
+      render 'update'
+    else
+      puts "EROOR #{@user.errors.full_messages}"
+      render 'edit'
+    end
   end
 
   def destroy

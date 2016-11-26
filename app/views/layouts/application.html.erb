@@ -28,7 +28,7 @@
             <a class="nav-item nav-link" href="#listings-row">Listings</a>
             <% if signed_in? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
                   <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
                   <%= link_to t(".sign_out"), sign_out_path, 
@@ -36,6 +36,7 @@
                 </div>
               </li>
             <% else %>
+
               <%= link_to("Sign Up", sign_up_path, :class => "nav-item nav-link") %>
               <%= link_to("Sign In", sign_in_path, :class => "nav-item nav-link") %>
             <% end %>
@@ -83,6 +84,7 @@
           <h1 class="title">Popular Listings</h1>
           <button class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
           <button class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+
           <div class="flex listing-row" id="listing-row">              
             <%= yield %>
           </div>

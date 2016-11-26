@@ -1,1 +1,7 @@
-<h2>Hello World</h2>
+<h2>Add A profile Image</h2>
+
+<%= form_for @user do |form| %>
+	<%= form.file_field :avatar%>
+	<%= form.submit %>
+<% end %>
+
