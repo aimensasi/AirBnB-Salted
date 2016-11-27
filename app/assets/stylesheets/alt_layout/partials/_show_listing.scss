@@ -1,0 +1,191 @@
+.img-gallery {
+  height: 581px;
+  .img-row.item{
+    height: 580px;
+    background-position: 0px !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    img{
+        display: block;
+        width: 100%;
+        position: relative;
+    }
+  }
+} // header image gallery style 
+
+.content .header{
+  .next, .prev{
+    position: absolute;
+    top: 300px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 99999;  
+    i{
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 90px;
+      font-weight: lighter;
+      transition: opacity .5s;
+    }
+  }
+  .next{
+    right: 70px;
+  }
+  .prev{
+    left: 50px;
+  }
+}
+
+.owl-controls{
+  display: none !important;
+}
+
+.body-row.container{
+	position: relative;
+  .col-md-8:first-child{
+    width: 65.666667%;
+  }
+} // Body row style
+
+.booking{
+  position: absolute;
+  top: -46px;
+  right: 0;
+  .price-row{
+    height: 45px;
+    padding: 11px 12px;
+    background: $divider-color;
+    color: #fff;
+    h3.price {
+      margin-right: auto;
+      font-weight: 200;
+      font-size: 22px;
+    }
+  }
+  
+  .form-row{
+    height: 363px;
+    border: 1px solid $border-color;
+    .form-group{
+      margin-bottom: 0.5rem;
+      margin-left: 39px;
+      margin-top: 10px;
+      width: 263px;
+      label{
+        display: block;
+      }
+      input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+        display: none;
+      }
+    }
+  .btn{
+    width: 350px;
+    margin-left: 10px;
+    background: $airbnb-color;
+    border-radius: 25px;
+    border-color: transparent;
+    margin-top: 30px;
+  }
+  .guests-no{
+    width: 263px;
+  }
+
+  }
+} // Booking Form Style
+ 
+
+.listing-description{
+  h2.title{
+    font-family: sans-serif;
+  }
+  .row.title-row {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    h2.title{
+      font-size: 26px;
+      font-weight: 500;
+      margin-top: 25px;
+      font-family: serif;
+    }
+    p.leads {
+      font-size: 17px;
+      font-weight: 100;
+      color: $border-secondary;
+    }
+    .user_img{
+      margin-top: 25px;
+      margin-left: 41px;
+    }
+    .username{
+      margin-top: 6px;
+      text-align: center;
+      color: $placeholder-color !important;
+      text-decoration: none !important;
+      &:hover{
+        color: $divider-color !important;
+        text-decoration: none !important;
+      }
+    }
+  }  // Styling Title Row 
+  .facility-row{
+    border-top: 1px solid $border-color;
+    div {
+      font-size: 33px;
+      text-align: center;
+      padding-top: 12px;
+    }
+    p.leads {
+      font-size: 17px;
+      font-weight: 100;
+      color: $border-secondary;
+    }
+  } // Styling facility Row 
+  
+  .summary-row{ 
+    h2.title {
+      font-weight: lighter;
+      font-size: 25px;
+      margin-top: 30px;
+    } 
+    p.leads {
+      font-weight: lighter;
+      font-size: 17px;
+    }
+  }
+  
+  .details-container{
+    .space{
+      h2.title  {
+        font-size: 21px;
+        font-weight: 500;
+        margin-top: 15px;
+      }
+    } // The style of the space
+    .amenities{
+      h2.title  {
+        font-size: 21px;
+        font-weight: 500;
+        margin-top: 15px;
+      }
+      .leads i{
+        width: 40px; 
+      }
+    } // The style of the amenities
+    .desc-row {
+      .leads{
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: 15px;
+        margin-left: 2px;
+        span{
+          font-weight: 500;        
+        }
+      }
+    } // The style of description row => desc-row
+  } // The style of a details container
+} // The style of a listing details
+
