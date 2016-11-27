@@ -18,6 +18,9 @@ body{
 	color: $star-color;
 }
 
+.b-b-1{
+  border-bottom: 1px solid $border-color;
+}
 
 .search-box::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #222;

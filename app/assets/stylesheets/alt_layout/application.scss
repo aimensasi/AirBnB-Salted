@@ -1,7 +1,10 @@
 @import "bootstrap";
+@import "../main_app/partials/owl.carousel";
+@import "../main_app/partials/owl.theme";
 @import 'partials/variables';
 @import 'partials/mixins';
 @import 'partials/base';
 @import 'partials/nav-bar';
 @import 'partials/modal';
 @import 'partials/footer';
+@import 'partials/show_listing';

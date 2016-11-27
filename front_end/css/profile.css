@@ -1,0 +1,206 @@
+.profile .navbar{
+	padding: 0;
+	border-radius: 0;
+	height: 49px;
+}
+
+.profile .nav li.nav-item {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.profile .navbar-nav .nav-link {
+  margin-right: 40px;
+  border: 2px solid transparent;
+  padding: 10px 0;
+}
+
+.profile .nav a.nav-link:hover, .active{
+	border-bottom-color: #fff !important;
+}
+
+.listing-tab.card, .profile-tab.card{
+	border: 1px solid #dce0e0;
+	position: relative;
+}
+
+.profile .card:hover .icon-close, .profile .profile-pic:hover .icon-delete{
+	opacity: 1;
+}
+
+.profile .card .icon-close, .profile-pic .icon-delete{
+	position: absolute;
+	z-index: 9999;
+	top: 71px;
+	right: 26px;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity .4s;
+}
+
+
+
+.profile .listing-opt{
+	margin-top: 30px;
+}
+
+.profile .listing-opt a{
+	margin-bottom: 30px;
+	color: #7d7d7d;
+	text-decoration: none !important;
+	transition: color .5s;
+}
+
+.profile .listing-opt a:hover{
+	color: #d7d7d7;
+	font-weight: 500;
+	text-decoration: none;
+}
+/*
+.profile .listing-opt a:active, .profile .listing-opt a:visited{
+	color: #222;
+	font-weight: 700;
+}*/
+
+.profile .btn{
+	border: none;
+}
+
+.profile .card-block .room-img{
+	background: #bbb;
+}
+
+.profile .btn-new-listing{
+	background: #007a87;
+	color: #fff;
+	width: 157px;
+	transition: background-color .5s;
+}
+
+.profile .btn-new-listing:hover{
+	background: rgba(0, 122, 135, 0.7);
+}
+
+.profile .listing-tab, .profile .profile-tab{
+	margin: 10px 0;
+}
+
+.profile .listing-desc, .profile .photo-desc{
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.profile .listing-desc h4.type {
+  font-size: 22px;
+  font-weight: 400;
+  color: #222;
+}
+
+.listing-desc h4.update {
+  font-size: 17px;
+  font-weight: 300;
+  color: #7d7d7d;
+  margin-top: 15px;
+}
+
+.profile .listing-desc .btn-preview{
+	width: 170px;
+	margin-top: 80px;
+	background: #ff5a5f;
+	transition: background-color .5s;
+}
+
+.profile .listing-desc .btn-preview:hover{
+	background: rgba(255,90,95,.7);
+}
+
+.photo-desc{
+
+}
+.photo-desc .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.photo-desc .inputfile + .btn-file {
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    background-color: #ff5a5f;
+    cursor: pointer;
+    margin-top: 54px;
+    margin-left: auto;
+    transition: background-color .5s;
+}
+
+.photo-desc .inputfile:focus + .btn-file,
+.photo-desc .inputfile + .btn-file:hover, .profile-tab .btn-submit:hover {
+    background: rgba(255,90,95,.7);
+}
+
+.profile .profile-pic{
+	position: relative;
+}
+
+.profile-pic .cover{
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	background: #d7d7d7;
+	opacity: 0.6;
+	border-radius: 120px;
+	z-index: 9998;
+	left: 2px;
+	top: 3px;
+}
+
+.profile .user-pic{
+	width: 205px;
+	height: 205px;
+}
+
+.profile-pic .icon-delete{
+    top: 4px;
+    right: 3px;
+}
+
+.profile .form-control.gender{
+	width: 190px;
+}
+
+.profile .country-field{
+	padding: 0;
+	margin: 0;
+}
+
+.country-field .c-form{
+	width: 193px;
+}
+
+.profile .form-control{
+	margin-bottom: 20px;
+}
+.profile .form-group.m-t-3{
+	margin-top: 40px;
+}
+
+#state{
+	margin-left: -23px;
+}
+
+#zip_code{
+	margin-left: -49px;
+}
+
+.profile-tab .btn-submit{
+    background: #ff5a5f;
+    margin-left: auto;
+    color: #fff;
+    font-weight: 100;
+    width: 122px;
+    margin-right: 13px;
+    margin-top: 15px;
+    transition: background .5s;
+}

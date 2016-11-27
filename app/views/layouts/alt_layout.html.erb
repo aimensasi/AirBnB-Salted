@@ -10,6 +10,7 @@
     <link rel="icon" href="https://www.airbnb.com/favicon.ico">
     <title>Welcome to the world of trips.</title>
     <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
     <%= stylesheet_link_tag 'alt_layout/application' %>
   </head>
   <body>
@@ -33,7 +34,7 @@
             
             <% if signed_in? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
                   <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
                   <%= link_to t(".sign_out"), sign_out_path, 

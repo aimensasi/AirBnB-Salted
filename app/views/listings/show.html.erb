@@ -1,5 +1,174 @@
-<h2><%= @listing.room_type %></h2>
+<div class="header">
+  <button class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+  <button class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+  <div class="img-gallery" id="img-gallery">
+  	<% if @listing.avatars.empty? %>
+      <div class="img-row item" style="background: url(/assets/no-photo.png);"></div>
+  	<% else %>
+  	   <%= @listing.avatars.each do |avatar| %>
+          <div class="img-row item" style="background: url(avatar.url);"></div>
+       <% end %>
+  	<% end %>
+  </div>
+</div>
+<div class="body-row container">
+  <div class="col-md-8 listing-description">
+    <div class="row title-row">
+      <div class="col-md-9 flex flex-col">
+        <h2 class="title">53rd Floor Strip View Balcony Kitchen Pool & Gym</h2>
+        <p class="leads"><%= @listing.address %>, <%= @listing.state %>, <%= @listing.country %></p>
+      </div>
+      <div class="col-md-3 flex flex-col">
+        <% if @listing.owner.avatar.file.nil? %>
+          <img src="/assets/user_pic.png" alt="User-pic" height="75" width="75" class="rounded-circle user_img">
+        <% else %>
+          <img src="<%= @listing.owner.avatar.url %>" alt="User" height="75" width="75" class="rounded-circle user_img">
+        <% end %>
+        <%= link_to(@listing.owner.name, user_path(@listing.owner) , :class => "leads username") %>
+      </div>
+    </div>
+    <!-- End Of the top section -->
+    <div class="row facility-row b-b-1">
+      <div class="col-md-3">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <p class="leads"><%= @listing.room_type %> <%= @listing.property_type %></p>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <p class="leads"><%= @listing.guest_no %> Guests</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-bed" aria-hidden="true"></i>
+        <p class="leads"><%= @listing.beds_number %> Beds</p>
+      </div>
+      <div class="col-md-3">
+        <i class="fa fa-bath" aria-hidden="true"></i>
+        <p class="leads"><%= @listing.bathrooms_number %> Bath</p>
+      </div>
+    </div>
+    <!-- End Of Room Fscilities Section -->
+    <div class="row summary-row b-b-1">
+      <div class="col-md-12">
+        <h2 class="title">About This Listing</h2>
+        <p class="leads">
+          This is an exquisite, 615 square feet studio unit with an unbelievable view of the Strip from a private balcony. This luxury rental is perfect for individuals or small groups who want the true Vegas experience. The combination bedroom/living areas are spacious and welcoming, and with ultra modern furniture and décor, will easily become your favorite spot in the suite. The private balcony overlooking the bright city of Vegas is also a major bonus, and guests can’t get enough of the views!
+        </p>
+      </div>
+    </div>
+    <!-- End Of Summery Section -->
+    <div class="row details-container">
+      <div class="desc-row space">
+        <div class="col-md-4">
+          <h2 class="title">The space</h2>
+        </div>
+        <div class="col-md-8 b-b-1">
+          <div class="col-md-6">
+            <div class="row">
+              <h3 class="leads">Accommodates: <span><%= @listing.guest_no %></span> </h3>
+            </div>
+            <div class="row">
+              <h3 class="leads">Bathrooms: <span><%= @listing.bathrooms_number %></span></h3>
+            </div>
+            <div class="row">
+              <h3 class="leads">Beds: <span><%= @listing.beds_number %></span></h3>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <h3 class="leads">Check In Time: <span><%= @listing.check_in %></span></h3>
+            </div>
+            <div class="row">
+              <h3 class="leads">Check Out Time: <span><%= @listing.check_out %></span></h3>
+            </div>
+            <div class="row">
+              <h3 class="leads">Property type: <span><%= @listing.property_type %></span></h3>
+            </div>
+            <div class="row">
+              <h3 class="leads">Room type: <span><%= @listing.room_type %></span></h3>
+            </div>
+          </div>
+        </div>  
+      </div>
+      <!-- End The space sections -->
+      <div class="desc-row amenities">
+        <div class="col-md-4">
+          <h2 class="title">Amenities</h2>
+        </div>
+        <div class="col-md-8 b-b-1">
+          <div class="col-md-6">
+            <% if  @listing.wifi == 1 %>
+                <div class="row">
+                  <h3 class="leads"><i class="material-icons">wifi</i>  Wireless Internet</h3>
+                </div>
+            <% end %>
 
-<% @listing.avatars.each do |image| %>
-	<%= image_tag(image.avatar.square.url) %>
-<% end %>
+            <% if  @listing.air_con == 1 %>
+                <div class="row">
+                  <h3 class="leads"><i class="fa fa-snowflake-o" aria-hidden="true"></i> Air conditioning</h3>
+                </div>    
+            <% end %>
+            
+            <% if  @listing.tv == 1 %>
+                <div class="row">
+                  <h3 class="leads"><i class="fa fa-television" aria-hidden="true"></i> Cable TV</h3>
+                </div>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <% if  @listing.Kitchen == 1 %>
+              <div class="row">
+                <h3 class="leads"><i class="fa fa-cutlery" aria-hidden="true"></i> Kitchen</h3>
+              </div>    
+            <% end %>
+
+            <% if  @listing.smoker == 1 %>
+                <div class="row">
+                  <h3 class="leads"><i class="material-icons">smoking_rooms</i> Smoking</h3>
+                </div>
+            <% else %>
+                <div class="row">
+                  <h3 class="leads"><i class="material-icons">smoke_free</i> No Smoking</h3>
+                </div>
+            <% end %>
+            
+            <% if  @listing.pool == 1 %>
+                <div class="row">
+                  <h3 class="leads"><i class="material-icons">pool</i> Pool</h3>
+                </div>
+            <% end %>
+          </div>
+        </div>  
+      </div>
+      <!-- End Of amenities section -->
+    </div><!-- End description container -->
+  </div><!-- End of the left side of the body section -->
+  <div class="col-md-4 booking">
+    <div class="row price-row flex">
+      <h3 class="price"><%= number_to_currency @listing.price_per_night %></h3>
+      <p class="text">Per Night</p>
+    </div><!-- End price section -->
+    <div class="row form-row">
+      <form action="">
+        <div class="row flex flex-col">
+          <div class="form-group">
+            <label for="check_in">Check In</label>
+            <input type="date" class="form-control date">
+          </div>
+          <div class="form-group">
+            <label for="check_in">Check In</label>
+            <input type="date" class="form-control date">
+          </div>
+          <div class="form-group">
+            <label for="check_in">Guests</label>
+            <select name="guests-no" class="guests-no custom-select">
+              <%= @listing.guest_no.times do |n| %>
+                <option value="<%= n + 1 %>"><%= n + 1 %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+          <input type="submit" class="btn btn-info submit form-controll" value="Book Now!">
+      </form>
+    </div><!-- End form sections -->
+  </div> <!-- End of the right side of the body section -->
+</div><!-- End of the body section -->

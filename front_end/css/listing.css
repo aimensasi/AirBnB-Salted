@@ -1,0 +1,163 @@
+*{
+	outline: 0 !important;
+}
+
+
+.body-row.container{
+	position: relative;
+}
+
+.body-row.container .col-md-8:first-child{
+	width: 65.666667%;
+}
+
+.form-row{
+	height: 363px;
+	border: 1px solid #dce0e0;
+}
+
+.img-gallery {
+  height: 581px;
+}
+
+.img-gallery .img-row.item{
+  height: 580px;
+  background-position: 0px !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+.booking{
+	position: absolute;
+	top: -46px;
+	right: 0;
+}
+
+.price-row{
+	height: 45px;
+  padding: 11px 12px;
+	background: rgba(60,63,64,0.9);
+	color: #fff;
+}
+
+h3.price {
+  margin-right: auto;
+  font-weight: 200;
+  font-size: 22px;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; 
+  display: none;
+}
+
+.form-group{
+  margin-bottom: 0.5rem;
+  margin-left: 39px;
+  margin-top: 10px;
+  width: 263px;
+}
+
+.form-group label{
+	display: block;
+}
+
+.booking .btn{
+	width: 350px;
+	margin-left: 10px;
+	background: #ff5a5f;
+	border-radius: 25px;
+	border-color: transparent;
+	margin-top: 30px;
+}
+
+.booking .guests-no{
+	width: 263px;
+}
+
+/*listing title*/
+.row.title-row {
+    margin-top: 25px;
+}
+
+h2.title{
+	font-family: sans-serif;
+}
+
+.body-row .title-row h2.title {
+   font-size: 26px;
+   font-weight: 500;
+   margin-top: 25px;
+   font-family: serif;
+}
+
+.row.facility-row{
+  border-top: 1px solid #dce0e0;
+}
+
+.b-b-1{
+	border-bottom: 1px solid #dce0e0;
+}
+
+.body-row p.leads {
+    font-size: 17px;
+    font-weight: 100;
+    color: #7d7d7d;
+}
+
+.body-row .user_img{
+	margin-top: 25px;
+	margin-left: 41px;
+}
+
+.body-row .username{
+	margin-top: 6px;
+	text-align: center;
+}
+
+.row.facility-row div {
+  font-size: 33px;
+  text-align: center;
+	padding-top: 12px;
+}
+
+.body-row .summary-row h2.title {
+  font-weight: lighter;
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.summary-row p.leads {
+  font-weight: lighter;
+  font-size: 17px;
+}
+
+.space h2.title, .body-row .amenities h2.title  {
+	font-size: 21px;
+	font-weight: 500;
+	margin-top: 15px;
+}
+
+.desc-row .leads {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 15px;
+  margin-left: 2px;
+}
+.desc-row .leads span{
+	font-weight: 500;
+}
+
+.amenities .leads i{
+	width: 40px; 
+}
+
+
+
+
+
+
+
