@@ -1,2 +1,66 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="profile">
+  <nav class="navbar navbar-dark bg-inverse">
+    <ul class="nav navbar-nav container">
+      <li class="nav-item">
+        <a class="nav-link " data-toggle="tab" href="#listings" role="tab">Your Listings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#trips" role="tab">Your Trips</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="tab-content container">
+    <div class="tab-pane listings" id="listings" role="tabpanel">
+      <div class="col-md-3 listing-opt flex flex-col">
+        <a href="#" class="your-lisitngs">Your Listings</a>
+        <%= link_to("Add New Listing", new_listing_path , :class => "btn btn-new-listing") %>
+      </div> <!-- Listing Opt -->
+      <div class="col-md-9">
+        <% if @user.listings.empty? %>
+          <div class="empty-list">
+            <h2 class="title">You don’t have any listings!</h2>
+            <p class="leads">
+              Make money by renting out your extra space on Airbnb. You’ll also get to meet interesting travelers from around the world!
+            </p>
+            <%= link_to("Add New Listing", new_listing_path , :class => "btn btn-new-listing") %>
+          </div>
+        <% else %>
+          <% @user.listings.each do |listing| %>  
+            <%= render :partial => "listings/partials/user_listing", :locals => {:listing => listing} %>
+          <% end %> <!-- Listings Loop -->
+        <% end %> <!-- End If  -->
+      </div> <!-- col-md-9 -->
+    </div> <!-- Listings container Tab -->
+
+    <div class="tab-pane" id="trips" role="tabpanel">
+      Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lore
+    </div> <!-- Trips container Tab -->
+
+    <div class="tab-pane profile-info active" id="profile" role="tabpanel">
+      <div class="col-md-10">  
+        <div class="card profile-card">
+          <div class="card-header">
+              Profile Photo
+          </div>
+          <div class="card-block flex">
+            <%= render :partial => "users/partials/edit_photo", :locals => {:user => @user} %>
+          </div>
+        </div> <!-- Profile card --> 
+        <div class="card profile-card">
+          <div class="card-header">
+            Profile Info
+          </div>
+          <div class="card-block">
+            <%= render :partial => "users/partials/edit_form", :locals => {:user => @user} %>
+          </div> <!-- Card Block -->
+        </div> <!-- Profile card --> 
+
+      </div> <!-- col-md-10 -->
+    </div> <!-- Profile Info container tab -->
+
+  </div> <!-- Tabs container -->
+</div> <!-- Profile Div--> 
+

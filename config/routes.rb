@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy] 
 
+  delete "/users/:id/destroy_avatar" => "users#destroy_avatar"
+
   root 'listings#index'
 
   # Example of regular route:

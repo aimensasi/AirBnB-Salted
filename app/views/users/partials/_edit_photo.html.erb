@@ -1,0 +1,21 @@
+<div class="profile-pic">
+  <div class="cover"></div>
+  <% if  user.avatar.file.nil? %>
+    <img src="/assets/user_pic.png" class="user-pic" alt="user-pic" width="330" height="200">
+  <% else %>
+    <img src="<%= user.avatar.url %>" class="user-pic" alt="user-pic" width="330" height="200">
+    <%= link_to "/users/#{user.id}/destroy_avatar", :method => :delete, :class => "no-color"  do %>
+      <i class="material-icons icon-delete">close</i>  
+    <% end %>
+  <% end %>
+</div>
+
+<div class="photo-desc">
+  <p class="leads">
+    Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Please upload a photo that clearly shows your face.
+  </p>
+  <form class="flex flex-col">
+    <input type="file" name="file" id="file" class="inputfile" />
+    <label for="file" class="btn btn-file">Choose a file</label>
+  </form>
+</div>
