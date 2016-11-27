@@ -16,5 +16,8 @@
       <%= link_to("Preview", listing_path(listing) , :class => "btn btn-danger btn-preview") %>
     </div>
   </div> <!-- Tab Block card -->
-  <i class="material-icons icon-close">close</i>
+  <%= link_to "/listings/#{listing.id}", :method => :delete, :class => "no-color" do %>
+    <i class="material-icons icon-close">close</i>
+  <% end %>
+  
 </div> <!-- Listing card container -->

@@ -4,7 +4,7 @@
 
 .profile {
 	.active{
-		border-bottom-color: #fff !important;
+		border-bottom-color: $white !important;
 	}
 	.navbar.navbar-dark{
 		padding: 0;
@@ -20,7 +20,7 @@
 			  border: 2px solid transparent;
 			  padding: 10px 0;
 			  &:hover{
-					border-bottom-color: #fff !important;
+					border-bottom-color: $white !important;
 			  }
 			}
 		} //nav
@@ -32,11 +32,11 @@
 	.listing-card.card, 
 	.profile-card.card{
 		margin: 10px 0;
-		border: 1px solid #dce0e0;
+		border: 1px solid $border-color;
 		position: relative;
 	} //Listing-card & profile-card
 	.room-img{
-		background: #bbb;
+		background: $default-img;
 	}
 
 	.listing-card.card{
@@ -46,8 +46,8 @@
 		.icon-close{
 			position: absolute;
 			z-index: 9999;
-			top: 71px;
-			right: 26px;
+			top: 56px;
+    	right: 7px;
 			cursor: pointer;
 			opacity: 0;
 			transition: opacity .4s;		
@@ -70,12 +70,12 @@
 		}
 		.btn-new-listing{
 			background: $airbnb-color;
-			color: #fff;
+			color: $white;
 			width: 157px;
 			transition: background-color .5s;
 			margin-bottom: 80px;
 			&:hover{
-				background: rgba(255,90,95,.7);
+				background: $airbnb-hover;
 			}
 		}
 	}
@@ -86,18 +86,18 @@
 		margin-top: 30px;
 		a{
 			margin-bottom: 30px;
-			color: #7d7d7d;
+			color: $border-secondary;
 			text-decoration: none !important;
 			transition: color .5s;
 			&:hover{
-				color: #d7d7d7;
+				color: $light-gray;
 				font-weight: 500;
 				text-decoration: none;
 			}
 		}
 		.btn-new-listing{
 			background: #007a87;
-			color: #fff;
+			color: $white;
 			width: 157px;
 			transition: background-color .5s;
 			&:hover{
@@ -118,21 +118,21 @@
 		h4.type {
 		  font-size: 22px;
 		  font-weight: 400;
-		  color: #222;
+		  color: $placeholder-color;
 		}
 		h4.update {
 		  font-size: 17px;
 		  font-weight: 300;
-		  color: #7d7d7d;
+		  color: $border-secondary;
 		  margin-top: 15px;
 		}
 		.btn-preview{
 			width: 170px;
 			margin-top: 80px;
-			background: #ff5a5f;
+			background: $airbnb-color;
 			transition: background-color .5s;
 			&:hover{
-				background: rgba(255,90,95,.7);
+				background: $airbnb-hover;
 			}
 		}
 	}
@@ -147,7 +147,7 @@
 			height: 200px;
 			width: 200px;
 			position: absolute;
-			background: #d7d7d7;
+			background: $light-gray;
 			opacity: 0.6;
 			border-radius: 120px;
 			z-index: 9998;
@@ -157,9 +157,6 @@
 		.user-pic{
 			width: 205px;
 			height: 205px;
-		}
-		a.no-color{
-			color: #7d7d7d;
 		}
 		.icon-delete{
 	    top: 4px;
@@ -189,7 +186,7 @@
 			    font-size: 18px;
 			    font-weight: 100;
 			    color: white;
-			    background-color: #ff5a5f;
+			    background-color: $airbnb-color;
 			    cursor: pointer;
 			    margin-top: 54px;
 			    margin-left: auto;
@@ -198,23 +195,23 @@
 		}
 		.inputfile:focus + .btn-file,
 		.inputfile + .btn-file:hover{
-		    background: rgba(255,90,95,.7);
+		    background: $airbnb-hover;
 		}
 	}	
 } //Profile info desc
 
 .profile .profile-card{
 	.btn-submit{
-    background: #ff5a5f;
+    background: $airbnb-color;
     margin-left: auto;
-    color: #fff;
+    color: $white;
     font-weight: 100;
     width: 122px;
     margin-right: 13px;
     margin-top: 15px;
     transition: background .5s;
     &:hover {
-	   background: rgba(255,90,95,.7);
+	   background: $airbnb-hover;
 		}
 	}
 	.form-group.m-t-3{

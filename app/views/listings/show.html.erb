@@ -5,8 +5,8 @@
   	<% if @listing.avatars.empty? %>
       <div class="img-row item" style="background: url(/assets/no-photo.png);"></div>
   	<% else %>
-  	   <%= @listing.avatars.each do |avatar| %>
-          <div class="img-row item" style="background: url(avatar.url);"></div>
+  	   <% @listing.avatars.each do |row| %>
+          <div class="img-row item" style="background: url(<%= row.avatar.url %>);"></div>
        <% end %>
   	<% end %>
   </div>

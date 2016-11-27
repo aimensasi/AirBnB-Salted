@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listings_params)
     avatars_params = params[:listing][:avatars]
-    @listing.user = current_user
+    @listing.owner = current_user
     if @listing.save
       avatars_params.each do |avatar|
         @listing.avatars.create!(:avatar => avatar)
@@ -39,6 +39,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing = Listing.find_by_id(params[:id])
+    owner = @listing.owner
+    @listing.delete
+    redirect_to user_path owner.id
   end
 
   private 

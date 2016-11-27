@@ -14,8 +14,8 @@
   <p class="leads">
     Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Please upload a photo that clearly shows your face.
   </p>
-  <form class="flex flex-col">
-    <input type="file" name="file" id="file" class="inputfile" />
-    <label for="file" class="btn btn-file">Choose a file</label>
+  <form class="flex flex-col" >
+    <input type="file" name="file" id="img-uploader" class="inputfile" data-parent="<%= user.id %>">
+    <label for="img-uploader" class="btn btn-file">Choose a file</label>
   </form>
 </div>
