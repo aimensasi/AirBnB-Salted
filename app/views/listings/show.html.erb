@@ -148,27 +148,9 @@
       <p class="text">Per Night</p>
     </div><!-- End price section -->
     <div class="row form-row">
-      <form action="">
-        <div class="row flex flex-col">
-          <div class="form-group">
-            <label for="check_in">Check In</label>
-            <input type="date" class="form-control date">
-          </div>
-          <div class="form-group">
-            <label for="check_in">Check In</label>
-            <input type="date" class="form-control date">
-          </div>
-          <div class="form-group">
-            <label for="check_in">Guests</label>
-            <select name="guests-no" class="guests-no custom-select">
-              <%= @listing.guest_no.times do |n| %>
-                <option value="<%= n + 1 %>"><%= n + 1 %></option>
-              <% end %>
-            </select>
-          </div>
-        </div>
-          <input type="submit" class="btn btn-info submit form-controll" value="Book Now!">
-      </form>
+      <%= render :partial => "/reservations/partials/form", :locals => {:listing => @listing} %>      
     </div><!-- End form sections -->
   </div> <!-- End of the right side of the body section -->
 </div><!-- End of the body section -->
+
+
