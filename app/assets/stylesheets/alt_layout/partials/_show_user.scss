@@ -1,0 +1,243 @@
+.profile .btn{
+	border: none;
+}
+
+.profile {
+	.active{
+		border-bottom-color: $white !important;
+	}
+	.navbar.navbar-dark{
+		padding: 0;
+		border-radius: 0;
+		height: 49px;
+		.nav {
+			li.nav-item {
+		  padding-bottom: 0px;
+		  padding-top: 0px;
+			}
+			a.nav-link {
+			  margin-right: 40px;
+			  border: 2px solid transparent;
+			  padding: 10px 0;
+			  &:hover{
+					border-bottom-color: $white !important;
+			  }
+			}
+		} //nav
+	} //navbar-dark
+
+} //profile container
+
+.profile .listings{
+	.listing-card.card, 
+	.profile-card.card{
+		margin: 10px 0;
+		border: 1px solid $border-color;
+		position: relative;
+	} //Listing-card & profile-card
+	.room-img{
+		background: $default-img;
+	}
+
+	.listing-card.card{
+		&:hover .icon-close{
+			opacity: 1;	
+		}
+		.icon-close{
+			position: absolute;
+			z-index: 9999;
+			top: 56px;
+    	right: 7px;
+			cursor: pointer;
+			opacity: 0;
+			transition: opacity .4s;		
+		}
+	}
+	
+
+
+
+	.empty-list{
+		.title{
+			font-size: 27px;
+			font-weight: 300;
+			margin-top: 20px;
+		}
+		.leads{
+			font-size: 17px;
+			font-weight: 100;
+			margin-bottom: 37px;
+		}
+		.btn-new-listing{
+			background: $airbnb-color;
+			color: $white;
+			width: 157px;
+			transition: background-color .5s;
+			margin-bottom: 80px;
+			&:hover{
+				background: $airbnb-hover;
+			}
+		}
+	}
+}	//styling listings and profile card
+
+.profile .listings{
+	.listing-opt{
+		margin-top: 30px;
+		a{
+			margin-bottom: 30px;
+			color: $border-secondary;
+			text-decoration: none !important;
+			transition: color .5s;
+			&:hover{
+				color: $light-gray;
+				font-weight: 500;
+				text-decoration: none;
+			}
+		}
+		.btn-new-listing{
+			background: #007a87;
+			color: $white;
+			width: 157px;
+			transition: background-color .5s;
+			&:hover{
+				background: rgba(0, 122, 135, 0.7);
+			}
+		}
+	}
+}//styling listings options => opt
+
+
+.profile{
+	.listing-desc,
+	.photo-desc{
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	.listing-desc{
+		h4.type {
+		  font-size: 22px;
+		  font-weight: 400;
+		  color: $placeholder-color;
+		}
+		h4.update {
+		  font-size: 17px;
+		  font-weight: 300;
+		  color: $border-secondary;
+		  margin-top: 15px;
+		}
+		.btn-preview{
+			width: 170px;
+			margin-top: 80px;
+			background: $airbnb-color;
+			transition: background-color .5s;
+			&:hover{
+				background: $airbnb-hover;
+			}
+		}
+	}
+
+} //Listing description
+
+
+.profile-info{
+	.profile-pic{
+		position: relative;
+		.cover{
+			height: 200px;
+			width: 200px;
+			position: absolute;
+			background: $light-gray;
+			opacity: 0.6;
+			border-radius: 120px;
+			z-index: 9998;
+			left: 2px;
+			top: 3px;
+		}
+		.user-pic{
+			width: 205px;
+			height: 205px;
+		}
+		.icon-delete{
+	    top: 4px;
+	    right: 3px;
+			position: absolute;
+			z-index: 9999;
+			cursor: pointer;
+			opacity: 0;
+			transition: opacity .4s;	
+		}
+		&:hover .icon-delete{
+			opacity: 1;	
+		}	
+	}
+} //Profile pic 
+
+.profile-info{
+	.photo-desc{
+		.inputfile {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			+ .btn-file {
+			    font-size: 18px;
+			    font-weight: 100;
+			    color: white;
+			    background-color: $airbnb-color;
+			    cursor: pointer;
+			    margin-top: 54px;
+			    margin-left: auto;
+			    transition: background-color .5s;
+			}
+		}
+		.inputfile:focus + .btn-file,
+		.inputfile + .btn-file:hover{
+		    background: $airbnb-hover;
+		}
+	}	
+} //Profile info desc
+
+.profile .profile-card{
+	.btn-submit{
+    background: $airbnb-color;
+    margin-left: auto;
+    color: $white;
+    font-weight: 100;
+    width: 122px;
+    margin-right: 13px;
+    margin-top: 15px;
+    transition: background .5s;
+    &:hover {
+	   background: $airbnb-hover;
+		}
+	}
+	.form-group.m-t-3{
+		margin-top: 40px;
+	}
+	.form-control{
+		margin-bottom: 20px;
+	}
+	.form-control.gender{
+		width: 190px;
+	}
+	.country-field{
+		padding: 0;
+		margin: 0;
+		.c-form{
+			width: 193px;
+		}
+		#state{
+			margin-left: -23px;
+		}
+
+		#zip_code{
+			margin-left: -49px;
+		}
+	}
+
+}  //Profile edit form
+
+

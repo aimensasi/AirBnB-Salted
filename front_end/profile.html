@@ -44,72 +44,73 @@
           </div>
         </nav>
       </div>
+      
       <div class="row content profile">
-        <nav class="navbar navbar-dark bg-inverse">
-          <ul class="nav navbar-nav container">
-            <li class="nav-item">
-              <a class="nav-link " data-toggle="tab" href="#listings" role="tab">Your Listings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#trips" role="tab">Your Trips</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="tab-content container">
-
-          <div class="tab-pane  listings" id="listings" role="tabpanel">
-            <div class="col-md-3 listing-opt flex flex-col">
-              <a href="#" class="your-lisitngs">Your Listings</a>
-              <button class="btn btn-new-listing">Add New Listing</button>
-            </div>
-            <div class="col-md-9">
-              <div class="listing-tab card">
-                <div class="card-header">
-                    In Progress
-                </div>
-                <div class="card-block flex">
-                  <img src="images/room_default.png" class="room-img" alt="House" width="330" height="200">
-                  <div class="listing-desc">
-                    <h4 class="type">Entire home/apt in Las Vegas</h4>
-                    <h4 class="update">Last updated on November 26, 2016</h4>
-                    <button class="btn btn-danger btn-preview">Preview</button>
-                  </div>
-                </div>
-                <i class="material-icons icon-close">close</i>
-              </div> <!-- Listing card -->
-            </div> <!-- Listings col -->
-          </div> <!-- Listings Tab -->
-
-          <div class="tab-pane" id="trips" role="tabpanel">
-            Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lore
-          </div> <!-- Trips Tab -->
-
-          <div class="tab-pane profile-info active" id="profile" role="tabpanel">
-            <div class="col-md-10">  
-              <div class="card profile-tab">
+        <div class="profile">
+          <nav class="navbar navbar-dark bg-inverse">
+            <ul class="nav navbar-nav container">
+              <li class="nav-item">
+                <a class="nav-link " data-toggle="tab" href="#listings" role="tab">Your Listings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#trips" role="tab">Your Trips</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="tab-content container">
+            <div class="tab-pane  listings" id="listings" role="tabpanel">
+              <div class="col-md-3 listing-opt flex flex-col">
+                <a href="#" class="your-lisitngs">Your Listings</a>
+                <button class="btn btn-new-listing">Add New Listing</button>
+              </div>
+              <div class="col-md-9">
+                <div class="listing-tab card">
                   <div class="card-header">
-                      Profile Photo
+                      In Progress
                   </div>
                   <div class="card-block flex">
-                    <div class="profile-pic">
-                      <div class="cover"></div>
-                      <img src="images/user_pic.png" class="user-pic" alt="House" width="330" height="200">
-                      <i class="material-icons icon-delete">close</i>  
-                    </div>
-                    
-                    <div class="photo-desc">
-                      <p class="leads">
-                        Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Please upload a photo that clearly shows your face.
-                      </p>
-                      <form class="flex flex-col">
-                        <input type="file" name="file" id="file" class="inputfile" />
-                        <label for="file" class="btn btn-file">Choose a file</label>
-                      </form>
+                    <img src="images/room_default.png" class="room-img" alt="House" width="330" height="200">
+                    <div class="listing-desc">
+                      <h4 class="type">Entire home/apt in Las Vegas</h4>
+                      <h4 class="update">Last updated on November 26, 2016</h4>
+                      <button class="btn btn-danger btn-preview">Preview</button>
                     </div>
                   </div>
+                  <i class="material-icons icon-close">close</i>
+                </div> <!-- Listing card -->
+              </div> <!-- Listings col -->
+            </div> <!-- Listings Tab -->
+
+            <div class="tab-pane" id="trips" role="tabpanel">
+              Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lore
+            </div> <!-- Trips Tab -->
+
+            <div class="tab-pane profile-info active" id="profile" role="tabpanel">
+              <div class="col-md-10">  
+                <div class="card profile-tab">
+                    <div class="card-header">
+                        Profile Photo
+                    </div>
+                    <div class="card-block flex">
+                      <div class="profile-pic">
+                        <div class="cover"></div>
+                        <img src="images/user_pic.png" class="user-pic" alt="House" width="330" height="200">
+                        <i class="material-icons icon-delete">close</i>  
+                      </div>
+                      
+                      <div class="photo-desc">
+                        <p class="leads">
+                          Clear frontal face photos are an important way for hosts and guests to learn about each other. It’s not much fun to host a landscape! Please upload a photo that clearly shows your face.
+                        </p>
+                        <form class="flex flex-col">
+                          <input type="file" name="file" id="file" class="inputfile" />
+                          <label for="file" class="btn btn-file">Choose a file</label>
+                        </form>
+                      </div>
+                    </div>
                 </div> <!-- Profile card --> 
                 <div class="card profile-tab">
                   <div class="card-header">
@@ -248,12 +249,13 @@
                     </form>
                   </div> <!-- Card Block -->
                 </div> <!-- Profile card --> 
-            </div> 
-          </div> <!-- Profile Info -->
-
-
-        </div> <!-- Tabs container -->
+              </div> 
+            </div> <!-- Profile Info -->
+          </div> <!-- Tabs container -->
+    
+        </div>
       </div><!-- End of the content container -->
+
       <div class="row footer">
         <footer class="container flex">
           <div class="footer-logo flex">

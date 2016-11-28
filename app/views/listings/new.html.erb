@@ -1,5 +1,27 @@
-<div class="form-group container">
+<div class="form-group container m-t-3">
 	<%= form_for @listing do |form|%>
+		
+		<div class="form-group row">
+		    <label for="property_type" class="col-xs-2 col-form-label">Property Type</label>
+		    <div class="col-xs-10">
+		    <%= form.text_field :title, :placeholder => "Title", :class => "form-control" %>
+		    </div>
+		    <p class="leads col-xs-10 offset-xs-2">
+		    	This will be showed when people first view your unit,
+		    	descripe the unit in a small secentence.
+		    	Don't warry you can give more information in the summary sections
+		    </p>
+		</div>
+		
+		<div class="form-group row">
+		    <label for="property_type" class="col-xs-2 col-form-label">Property Type</label>
+		    <div class="col-xs-10">
+		    <%= form.text_area :summary, :row => "8", :placeholder => "summary", :class => "form-control" %>
+		    </div>
+		    <p class="leads col-xs-10 offset-xs-2">
+		    	give a small sumary about the unit, be descriptive.
+		    </p>
+		</div>
 
 		<div class="form-group row">
 		    <label for="property_type" class="col-xs-2 col-form-label">Property Type</label>
@@ -18,25 +40,25 @@
 		</div>
 		
 		<div class="form-group row">
-		    <label for="beds_number" class="col-xs-2 col-form-label">Number Of Bathrooms</label>
+		    <label for="bathrooms_number" class="col-xs-2 col-form-label">Number Of Bathrooms</label>
 		    <div class="col-xs-10">
-		    <%= form.select :beds_number, 
+		    <%= form.select :bathrooms_number, 
 		    options_for_select(1..15, 3), {}, :class => 'form-control' %>
 		    </div>
 		</div>
 
 		<div class="form-group row">
-		    <label for="bathrooms_number" class="col-xs-2 col-form-label">Number Of Beds</label>
+		    <label for="beds_no" class="col-xs-2 col-form-label">Number Of Beds</label>
 		    <div class="col-xs-10">
-		    <%= form.select :bathrooms_number, 
+		    <%= form.select :beds_no, 
 		    options_for_select(1..15, 2), {}, :class => 'form-control' %>
 		    </div>
 		</div>
 		
 		<div class="form-group row">
-		    <label for="bathrooms_number" class="col-xs-2 col-form-label">Number Of Guests</label>
+		    <label for="guest_no" class="col-xs-2 col-form-label">Number Of Guests</label>
 		    <div class="col-xs-10">
-		    <%= form.select :bathrooms_number, 
+		    <%= form.select :guest_no, 
 		    options_for_select(1..16, 2), {}, :class => 'form-control' %>
 		    </div>
 		</div>

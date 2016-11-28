@@ -4,6 +4,7 @@ class UsersController < Clearance::UsersController
   layout 'alt_layout'
   
   def show
+    @user = User.find_by_id(params[:id])
   end
 
   def new
@@ -49,6 +50,12 @@ class UsersController < Clearance::UsersController
   end
 
   def destroy
+  end
+
+  def destroy_avatar
+    @avatar = User.find(params[:id]).avatar
+    @avatar.destroy
+    redirect_to user_path(params[:id])
   end
 
   private 

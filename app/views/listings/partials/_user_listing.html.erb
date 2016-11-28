@@ -1,0 +1,23 @@
+<div class="listing-card card">
+  <div class="card-header">
+      In Progress
+  </div> <!-- Tab Header -->
+  <div class="card-block flex">
+    <% if listing.avatars.empty? %>
+      <img src="/assets/room_default.png" class="room-img" alt="room-default" width="330" height="200">
+    <% else %>
+      <img src="<%= listing.avatars.first.avatar.url %>" class="room-img" alt="room" width="330" height="200">
+    <% end %>
+    <div class="listing-desc">
+      <h4 class="type">
+      <%= listing.room_type %> <%= listing.property_type %> In <%= listing.state %>
+      </h4>
+      <h4 class="update">Last updated <%= listing.updated_at.strftime("On %B %e, %Y") %></h4>
+      <%= link_to("Preview", listing_path(listing) , :class => "btn btn-danger btn-preview") %>
+    </div>
+  </div> <!-- Tab Block card -->
+  <%= link_to "/listings/#{listing.id}", :method => :delete, :class => "no-color" do %>
+    <i class="material-icons icon-close">close</i>
+  <% end %>
+  
+</div> <!-- Listing card container -->

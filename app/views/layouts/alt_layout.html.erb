@@ -17,7 +17,7 @@
     
 
     <div class="container-fluid flex flex-col">
-      <div class="row header">
+      <div class="row header alt">
         <nav class="navbar navbar-dark bg-inverse">
           <div class="nav navbar-nav flex">
             <a class="navbar-brand" href="/">
@@ -29,14 +29,14 @@
                 <input type="text" name="query" class="search-box" placeholder="Search...">  
               </div>
             </form>
-            <a class="nav-item nav-link active" href="#">Become a Host <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/listings/new">Become a Host <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#listings-row">Listings</a>
             
             <% if signed_in? %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
-                  <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+                  <%= link_to("Profile", user_path(current_user), :class => "dropdown-item") %>
                   <%= link_to t(".sign_out"), sign_out_path, 
                       method: :delete, :class => "dropdown-item" %>
                 </div>

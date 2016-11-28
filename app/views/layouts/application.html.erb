@@ -30,7 +30,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
                 <div class="dropdown-menu" aria-labelledby="user_menu">
-                  <%= link_to("Profile", edit_user_path(current_user), :class => "dropdown-item") %>
+                  <%= link_to("Profile", user_path(current_user), :class => "dropdown-item") %>
                   <%= link_to t(".sign_out"), sign_out_path, 
                       method: :delete, :class => "dropdown-item" %>
                 </div>
