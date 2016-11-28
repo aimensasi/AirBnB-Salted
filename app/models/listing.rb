@@ -7,7 +7,7 @@ class Listing < ActiveRecord::Base
 
 	validates_presence_of :user_id, :room_type, :property_type, :country, :state, :zip_code
 	
-	scope :top, -> {order('price_per_night DESC').limit(5) }
+	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) }
 
 	def check_in
 		check_in_time.strftime("%I:%M %p")
