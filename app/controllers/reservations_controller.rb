@@ -10,11 +10,12 @@ class ReservationsController < ApplicationController
   def create
   	@res = Reservation.create_from_hash(reservation_params)
   	if @res.errors.empty?
+      ReservationMailer.confirm_reservation(@res).deliver_later
   		redirect_to user_path current_user	
   	else
   		puts "ERRORRS #{@res.errors.full_messages.first}"
+      redirect_to listing_path @res.listing
   	end
-  	redirect_to user_path current_user
   end
 
   def update

@@ -23,6 +23,7 @@ class UsersController < Clearance::UsersController
 
       if @user.save
         sign_in @user
+        UserMailer.welcome_email(@user).deliver_later
         format.html { redirect_back_or url_after_create }
         format.js { redirect_back_or url_after_create }
       else

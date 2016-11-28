@@ -22,7 +22,7 @@
           <h4 class="type">
           <%= listing.room_type %> <%= listing.property_type %> In <%= listing.state %>
           </h4>
-          <h4 class="update">Last updated <%= listing.updated_at.strftime("On %B %e, %Y") %></h4>
+          <h4 class="update">Last updated <%= listing.last_update %></h4>
           <%= link_to("Preview", listing_path(listing) , :class => "btn btn-danger btn-preview") %>
         </div>
       </div> <!-- Tab Block card -->

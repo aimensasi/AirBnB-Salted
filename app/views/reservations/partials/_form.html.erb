@@ -20,6 +20,11 @@
           <% end %>
         <% end %>
       </div>
-      <%= f.submit "Book Now!", :class => "btn submit" %>
+      <% if is_admin_or_current(listing.owner) %>
+        <%= f.submit "Book Now!", :class => "btn submit", :disabled => true %>
+      <% else %>
+        <%= f.submit "Book Now!", :class => "btn submit" %>
+      <% end %>
+      
     </div>
 <% end %>
