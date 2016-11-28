@@ -18,11 +18,11 @@
           <h4 class="type">
           <%= reservation.listing.room_type %> <%= reservation.listing.property_type %> In <%= reservation.listing.state %>
           </h4>
-          <h4 class="reserved-by">Reserved By <strong><%= reservation.user.name %></strong> </h4>
-            <h4 class="check-date">Check in: <%= reservation.check_in_date.strftime("On %B %e, %Y") %></h4>  
-            <h4 class="check-date">Check out: <%= reservation.check_out_date.strftime("On %B %e, %Y") %></h4>  
+          <h4 class="reserved-by">Reserved By <strong><%= reservation.tenant.name %></strong> </h4>
+            <h4 class="check-date">Check in: <%= reservation.check_in %></h4>  
+            <h4 class="check-date">Check out: <%= reservation.check_out %></h4>  
           
-          <h4 class="update">Last updated: <%= reservation.listing.updated_at.strftime("On %B %e, %Y") %></h4>
+          <h4 class="update">Last updated: <%= reservation.listing.last_update %></h4>
           <%= link_to("Preview", listing_path(reservation.listing) , :class => "btn btn-danger btn-preview") %>
         </div>
       </div> <!-- Tab Block card -->

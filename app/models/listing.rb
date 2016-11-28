@@ -17,5 +17,9 @@ class Listing < ActiveRecord::Base
 	def check_out
 		check_out_time.strftime("%I:%M %p")
 	end
+
+	def last_update
+		updated_at.strftime("On %B %e, %Y")
+	end
 end
 

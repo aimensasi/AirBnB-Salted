@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
 
-	belongs_to :user
+	belongs_to :tenant, :class_name => "User", :foreign_key => :user_id
 	belongs_to :listing
 
 	validates_presence_of :user_id, :listing_id, :check_in_date, :check_out_date
@@ -23,6 +23,14 @@ class Reservation < ActiveRecord::Base
 			reservation = self.create(params)
 			reservation
 		end
+	end
+
+	def check_in
+		check_in_date.strftime("On %B %e, %Y")
+	end
+
+	def check_out
+		check_out_date.strftime("On %B %e, %Y")
 	end
 end
 

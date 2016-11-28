@@ -1,0 +1,24 @@
+.f-new-listing{
+	.inputfile {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+		+ .btn-file {
+		    font-size: 18px;
+		    font-weight: 100;
+		    color: white;
+		    background-color: $airbnb-color;
+		    cursor: pointer;
+		    margin-top: 54px;
+		    margin-left: auto;
+		    transition: background-color .5s;
+		}
+	}
+	.inputfile:focus + .btn-file,
+	.inputfile + .btn-file:hover{
+	    background: $airbnb-hover;
+	}
+} //Profile info desc

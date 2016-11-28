@@ -46,4 +46,6 @@ class User < ActiveRecord::Base
     "#{first_name.capitalize} #{last_name.capitalize}"  
   end
 
+  enum :is_admin => [:user, :admin]
+
 end
