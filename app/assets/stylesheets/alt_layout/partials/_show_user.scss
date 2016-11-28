@@ -104,6 +104,10 @@
 				background: rgba(0, 122, 135, 0.7);
 			}
 		}
+		.your-lisitngs.active,
+		.your-reservations.active{
+			color: $star-color !important;
+		}
 	}
 }//styling listings options => opt
 
@@ -121,10 +125,22 @@
 		  color: $placeholder-color;
 		}
 		h4.update {
-		  font-size: 17px;
+		  font-size: 15px;
 		  font-weight: 300;
 		  color: $border-secondary;
 		  margin-top: 15px;
+		}
+		h4.check-date{
+			font-size: 15px;
+			font-weight: 300;
+		  color: $border-secondary;
+		  margin-top: 15px;
+		}
+		h4.reserved-by{
+			font-size: 17px;
+			font-weight: 500;
+		  color: $border-secondary;
+		  margin-top: 15px;	
 		}
 		.btn-preview{
 			width: 170px;

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :authentications, :dependent => :destroy
   has_many :listings, :dependent => :destroy
+  has_many :reservations, :dependent => :destroy
   
   validates :first_name, :presence => true, :length => {:maximum => 70}
   validates :last_name, :presence => true, :length => {:maximum => 70}
