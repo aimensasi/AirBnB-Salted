@@ -51,6 +51,10 @@ gem 'mini_magick'
 #Fog for cloud computing
 # gem 'fog'
 gem 'fog-aws'
+#queueing system 
+gem 'sidekiq'
+#uploading images in the background
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
