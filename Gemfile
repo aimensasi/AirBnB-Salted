@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
+#queueing system 
+gem 'sidekiq'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
@@ -51,8 +53,7 @@ gem 'mini_magick'
 #Fog for cloud computing
 # gem 'fog'
 gem 'fog-aws'
-#queueing system 
-gem 'sidekiq'
+
 #uploading images in the background
 gem 'carrierwave_backgrounder', '~> 0.4.2'
 

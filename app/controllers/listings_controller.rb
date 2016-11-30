@@ -41,7 +41,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find_by_id(params[:id])
     owner = @listing.owner
-    @listing.delete
+    @listing.destroy
     redirect_to user_path owner.id
   end
 
