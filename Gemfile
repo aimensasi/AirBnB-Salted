@@ -45,7 +45,7 @@ gem 'jquery-turbolinks'
 # gem 'bcrypt', '~> 3.1.7'
 
 #carrierwave for uploading images
-gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'carrierwave', '~> 0.5'
 #mini magic
 gem 'mini_magick'
 #Fog for cloud computing
@@ -54,7 +54,7 @@ gem 'fog-aws'
 #queueing system 
 gem 'sidekiq'
 #uploading images in the background
-
+gem 'carrierwave_backgrounder', '~> 0.4.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
