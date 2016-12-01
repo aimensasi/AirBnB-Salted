@@ -78,3 +78,6 @@ end
 
 gem "letter_opener", :group => :development
 
+#payment by braintree
+gem "braintree", "~> 2.69.0"
+
