@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :transactions, only: [:new, :create]
-
+  resources :search_enigne, only: [:new, :create]
   #clearance Routes
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
