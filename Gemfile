@@ -43,7 +43,8 @@ gem 'omniauth-facebook'
 gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+#queueing system 
+gem 'sidekiq'
 #carrierwave for uploading images
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 #mini magic
@@ -51,8 +52,7 @@ gem 'mini_magick'
 #Fog for cloud computing
 # gem 'fog'
 gem 'fog-aws'
-#queueing system 
-gem 'sidekiq'
+
 #uploading images in the background
 
 
