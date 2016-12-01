@@ -1,0 +1,90 @@
+
+
+.search-engine{
+	.dates-row{
+		border-bottom: 1px solid $light-gray;
+		margin-left: 10px;
+		padding-bottom: 20px;
+		label{
+			margin-top: 10px;
+		}
+		.form-control{
+			width: 20%;
+			height: 35px;
+			margin-right: 40px;
+		}
+		select{
+			height: 35px !important;
+		}
+	}//Dates Row 
+	.room-row{
+		padding-top: 20px;
+		margin-left: 10px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $light-gray;
+		.label{
+			margin-top: 10px;
+		}
+		.room-type{
+			background: $border-color;
+			padding: 8px 45px;
+			margin-right: 10px;
+		}
+		.checkbox-indicator{
+			/*background: $white;*/
+			border: 1px solid #fff;
+			width: 20px;
+			height: 20px;
+			top: 10px;
+			left: 8px;
+		}
+	}//Room Row 
+	.filter{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-left: 10px;
+		border-bottom: 1px solid $light-gray;
+		.btn-filter{
+			height: 37px;
+			width: 105px;
+			background: $white;
+			border: 1px solid $light-gray;
+			transition: border-color .5s;
+			&:hover{
+				border-color: $divider-color;
+			}
+		}
+	}//Filter Button
+	.filter-row{
+		.space-row{
+			padding-top: 20px;
+			margin-left: 10px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid $light-gray;
+			
+		}
+
+
+
+
+	}//Filter Row
+
+
+
+} //Search Engine Style
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
