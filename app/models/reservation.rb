@@ -6,23 +6,21 @@ class Reservation < ActiveRecord::Base
 	validates_presence_of :user_id, :listing_id, :check_in_date, :check_out_date
 
 
+	def validate_dates
 
-	def self.create_from_hash(params)
-
-		reserved_listings = self.where('listing_id = ?', params[:listing_id])
-		if reserved_listings.empty?
-			reservation = self.create(params)
-			reservation
-		else
-			reserved_listings.each do |reservation|
-				if params[:check_in_date].between?(reservation.check_in_date, reservation.check_out_date) || params[:check_out_date].between?(reservation.check_in_date, reservation.check_out_date)
-						reservation.errors.add(:listing_id, "is reserved during the given date")
-						return reservation
+		reserved_listings = Reservation.where('listing_id = ?', listing.id)
+			#listing has been reserved before 
+		if !reserved_listings.empty?
+			reserved_listings.each do |reserved|
+				#listing exists but not save at the given date
+				if check_in_date.between?(reserved.check_in_date, reserved.check_out_date) || 
+					 check_in_date.between?(reserved.check_in_date, reserved.check_out_date)
+					 return false
 				end
 			end
-			reservation = self.create(params)
-			reservation
-		end
+		else	
+			true
+		end	
 	end
 
 	def check_in

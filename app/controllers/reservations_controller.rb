@@ -8,14 +8,22 @@ class ReservationsController < ApplicationController
   end
 
   def create
-  	@res = Reservation.create_from_hash(reservation_params)
-  	if @res.errors.empty?
-      ReservationMailer.confirm_reservation(@res).deliver_later
-  		redirect_to user_path current_user	
-  	else
-  		puts "ERRORRS #{@res.errors.full_messages.first}"
-      redirect_to listing_path @res.listing
-  	end
+    @reservation = Reservation.new(reservation_params)
+
+    if @reservation.validate_dates
+      price_per_night = @reservation.listing.price_per_night
+      puts "private #{price_per_night}"
+      puts "private #{@reservation.check_out_date}"
+      puts "private #{@reservation.check_in_date}"
+      puts "total_price #{price_per_night.to_i * (@reservation.check_out_date.to_date - @reservation.check_in_date.to_date).to_i}"
+      @reservation.total_price = price_per_night.to_i * (@reservation.check_out_date.to_date - @reservation.check_in_date.to_date).to_i
+      @reservation.save
+      redirect_to :controller => 'transactions', :action => 'new', :reservation_id => @reservation.id 
+    else
+      flash[:error] = "The room is not avaliable at the given date"
+      puts "ERRORRS #{@reservation.errors.full_messages}"
+      redirect_to listing_path @reservation.listing
+    end
   end
 
   def update
