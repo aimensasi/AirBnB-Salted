@@ -1,4 +1,6 @@
 <form id="checkout-form" action="/transactions" method="post" data_token="<%= @client_token %>">
+  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" class="hidden">
+  <input type="hidden" value="<%= @reservation.id %>" name="reservation_id" class="hidden">
   <div id="error-message"></div>
 
   <label for="card-number">Card Number</label>
@@ -11,7 +13,7 @@
   <div class="hosted-field" id="expiration-date"></div>
 
   <input type="hidden" name="payment-method-nonce">
-  <input type="submit" value="Pay $10" disabled>
+  <input type="submit" value="<%= @reservation.total_price %>" disabled>
 </form>
 
 <!-- Load the Client component. -->

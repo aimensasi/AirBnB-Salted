@@ -50,6 +50,19 @@
       </div>
       <div class="row content">
         <div class="header">
+            <% if flash[:error] %>
+            <div class="row error">
+              <div class="alert alert-danger center-content" role="alert">
+                <%= flash[:error] %>
+              </div>
+            </div>
+            <% elsif flash[:notice] %>
+              <div class="row notice">
+                <div class="alert alert-info center-content" role="alert">
+                  <%= flash[:notice] %>
+                </div>
+              </div>
+            <% end %>
             <%= yield %>
         </div>
       </div>
