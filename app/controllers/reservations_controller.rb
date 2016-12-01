@@ -18,7 +18,6 @@ class ReservationsController < ApplicationController
       puts "total_price #{price_per_night.to_i * (@reservation.check_out_date.to_date - @reservation.check_in_date.to_date).to_i}"
       @reservation.total_price = price_per_night.to_i * (@reservation.check_out_date.to_date - @reservation.check_in_date.to_date).to_i
       @reservation.save
-      ReservationMailer.confirm_reservation(@reservation).deliver_later
       redirect_to :controller => 'transactions', :action => 'new', :reservation_id => @reservation.id 
     else
       flash[:error] = "The room is not avaliable at the given date"

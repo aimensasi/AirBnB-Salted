@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
   	  }
   	)
   	if result.success?
+  		ReservationMailer.confirm_reservation(@reservation).deliver_later
   		redirect_to user_path current_user, :notice => "Congraulations! Your transaction has been successfully!"
   	else
   		puts "Error >> #{result.errors.inspect}"
