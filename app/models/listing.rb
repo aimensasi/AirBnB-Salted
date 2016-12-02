@@ -28,47 +28,47 @@ class Listing < ActiveRecord::Base
 		return all unless room_type.present?
 		where(:room_type => room_type)
 	}
-	
+
 	scope :by_beds_number, -> (beds_number) {  		
 		return all unless beds_number.present?
 		where(:beds_number => beds_number)
 	}
-	  												
+
 	scope :by_bathrooms_number, -> (bathrooms_number) {  		
 		return all unless bathrooms_number.present?
 		where(:bathrooms_number => bathrooms_number)
 	}
-	
+
 	scope :by_wifi, -> (wifi) {  		
 		return all unless wifi.present?
 		where(:wifi => wifi)
 	}
-	
+
 	scope :by_kitchen, -> (kitchen) {  		
 		return all unless kitchen.present?
 		where(:kitchen => kitchen)
 	}
-	
+
 	scope :by_pool, -> (pool) {  		
 		return all unless pool.present?
 		where(:pool => pool)
 	}
-	
+
 	scope :by_tv, -> (tv) {  		
 		return all unless tv.present?
 		where(:tv => tv)
 	}
-	
+
 	scope :by_air_con, -> (air_con) {  		
 		return all unless air_con.present?
 		where(:air_con => air_con)
 	}
-	
+
 	scope :by_smoking, -> (smoker) {  		
 		return all unless smoker.present?
 		where(:smoker => smoker)
 	}
-	
+
 
 
 	def self.filter(filters)
@@ -85,14 +85,6 @@ class Listing < ActiveRecord::Base
 		puts "Args #{args.split(' ')}"
 		# where(query, args)
 	end
-
-
-
-
-
-
-
-
 
 
 
