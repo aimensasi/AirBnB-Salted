@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var dataJson = [];
+	var dataJson = {};
 
 	var $resultPanel = $('#instance-panel');
 	var $searchBox = $('#search-box');
@@ -34,19 +34,40 @@ $(document).ready(function(){
 		$resultRow.removeClass('hidden');
 	});
 
+	//Handling Dates Filter Check In Check out and guests no
 	$('input[type="date"], #guests').on('change', function(){
 		var $changed = $(this);
 		var attrName = $changed.attr('name');
-		dataJson.push({'filter': attrName, 'value': $changed.val()})
-		// if (attrName == 'guest_no') {
-		// 	console.log($changed.val());
-		// }else if (attrName == 'check_in_date'){
-		// 	console.log($changed.val());
-		// }else if (attrName == 'check_out_date'){
-		// 	console.log($changed.val());
-		// }
+		dataJson[attrName] = $changed.val();
+
+		if (attrName == 'check_in_date') {
+				if ($changed.val().length == 0) {
+					$('input[name="check_out_date"]').val('').prop('disabled', true);	
+				}else{
+					var date = new Date($changed.val());
+					var htmlDate = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + (date.getDate() + 1) ).slice(-2);
+					var $check_out_date = $('input[name="check_out_date"]');
+					$check_out_date.val(htmlDate).prop('disabled', false);
+					dataJson[$check_out_date.attr('name')] = $check_out_date.val();					
+				}
+		}else if (attrName == 'check_out_date') {
+				if ($changed.val().length == 0) {
+					var $check_in_date = $('input[name="check_in_date"]');
+					$check_in_date.val('');
+					$changed.val('');
+					dataJson[attrName] = null;
+					dataJson[$check_in_date.attr('name')] = null;
+				}else{
+					dataJson[attrName] = $changed.val();	
+				}
+		}else if (attrName == 'guest_no') {
+			dataJson[attrName] = $changed.val();
+		}
 		sendAjaxRequest(dataJson);
 	});
+
+
+
 
 	function sendAjaxRequest(data){
 		console.log(data);
