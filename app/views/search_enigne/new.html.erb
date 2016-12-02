@@ -5,7 +5,7 @@
 		<label for="dates" class="col-md-2" >Dates</label>
 		<input type="date" class="form-control" placeholder="Check in" id="check_in_date" name="check_in_date">
 		<input type="date" class="form-control" placeholder="Check out" id="check_out_date" name="check_out_date">
-		<select class="custom-select form-control">
+		<select class="custom-select form-control" id="guests" name="guest_no">
 		  <option selected>Guests</option>
 		  <% 16.times do |n| %>
 				<option value="<%= n + 1 %>"><%= n + 1 %></option>
@@ -32,78 +32,76 @@
 		</label>
 	</div> <!-- Room Row -->
 
-
-
-
 	<div class="group-form row filter">
 		<button class="btn btn-default btn-filter">Filter</button>
 	</div>
 
-	<div class="filter-row row">
-		<div class="space-row row flex ml-2">
-			<label for="rooms" class="col-md-2" >Size</label>
-  		<label class="custom-control custom-checkbox entire-room">
-  		  <input type="checkbox" class="custom-control-input" name="bathrooms_number">
-  		  <span class="custom-control-indicator"></span>
-  		  <span class="custom-control-description">Bathrooms</span>
-  		</label>  
-  		<label class="custom-control custom-checkbox entire-room">
-  		  <input type="checkbox" class="custom-control-input" name="beds_number">
-  		  <span class="custom-control-indicator"></span>
-  		  <span class="custom-control-description">Beds</span>
-  		</label>  
+
+
+	<div class="filter-row row flex flex-col hidden">
+		<div class="space-row row">
+			<div class="flex col-md-10 offset-md-1 size-col">
+				<label for="rooms" class="col-md-1" >Size</label>
+				<div class="col-md-10">
+					<label class="custom-control custom-checkbox entire-room col-md-6">
+					  <input type="checkbox" class="custom-control-input" name="bathrooms_number">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Bathrooms</span>
+					</label>  
+					<label class="custom-control custom-checkbox entire-room col-md-6">
+					  <input type="checkbox" class="custom-control-input" name="beds_number">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Beds</span>
+					</label>  
+				</div>
+			</div>
 		</div><!--  space row -->
 		<div class="facilities-row row">
-			<label for="rooms" class="col-md-2 ml-2" >Facilities</label>
-			<div class="col-md-8 b-b-1">
-			    <div class="col-md-3">
-			  		<label class="custom-control custom-checkbox entire-room">
-			  		  <input type="checkbox" class="custom-control-input" name="wifi">
-			  		  <span class="custom-control-indicator"></span>
-			  		  <span class="custom-control-description">Wireless Internet</span>
-			  		</label>  
-			    </div>
-		      <div class="col-md-3">
-		    		<label class="custom-control custom-checkbox entire-room">
-		    		  <input type="checkbox" class="custom-control-input" name="tv">
-		    		  <span class="custom-control-indicator"></span>
-		    		  <span class="custom-control-description">Tv</span>
-		    		</label>  
-		      </div>
-	        <div class="col-md-3">
-	      		<label class="custom-control custom-checkbox entire-room">
-	      		  <input type="checkbox" class="custom-control-input" name="kitchen">
-	      		  <span class="custom-control-indicator"></span>
-	      		  <span class="custom-control-description">Kitchen</span>
-	      		</label>  
-	        </div>
-          <div class="col-md-3">
-        		<label class="custom-control custom-checkbox entire-room">
-        		  <input type="checkbox" class="custom-control-input" name="air-con">
-        		  <span class="custom-control-indicator"></span>
-        		  <span class="custom-control-description">Air Conditioner</span>
-        		</label>  
-          </div>
-          <div class="col-md-3">
-        		<label class="custom-control custom-checkbox entire-room">
-        		  <input type="checkbox" class="custom-control-input" name="pool">
-        		  <span class="custom-control-indicator"></span>
-        		  <span class="custom-control-description">Pool</span>
-        		</label>  
-          </div>
-          <div class="col-md-3">
-        		<label class="custom-control custom-checkbox entire-room">
-        		  <input type="checkbox" class="custom-control-input" name="smoking">
-        		  <span class="custom-control-indicator"></span>
-        		  <span class="custom-control-description">Smooking Allowed</span>
-        		</label>  
-          </div>
-			</div>  
+			<div class="flex col-md-10 offset-md-1 size-col">
+				<label for="rooms" class="col-md-1" >Facilities</label>
+				<div class="col-md-10">
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="wifi">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Wireless Internet</span>
+					</label>
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="tv">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Tv</span>
+					</label> 
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="kitchen">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Kitchen</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="air-con">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Air Conditioner</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="pool">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Pool</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="smoking">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Smooking Allowed</span>
+					</label>  
+				</div>
+			</div>	
 		</div><!--  facilities row -->
-		
+		<div class="btn-group flex">	
+			<button class="btn btn-secondary btn-cancel">cancel</button>
+			<button class="btn btn-primary btn-apply">Apply</button>
+		</div>
 	</div><!--  Filter row -->
 
-	<div class="result" id="reseult"></div> <!-- Result Panel -->
+	<div class="result-row" id="reseult">
+		<div class="col-md-6"></div>
+	</div> <!-- Result Panel -->
 </div>
 
 

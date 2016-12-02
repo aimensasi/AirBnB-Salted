@@ -50,22 +50,53 @@
 			background: $white;
 			border: 1px solid $light-gray;
 			transition: border-color .5s;
+			margin-left: 10px;
 			&:hover{
 				border-color: $divider-color;
 			}
 		}
 	}//Filter Button
 	.filter-row{
-		.space-row{
-			padding-top: 20px;
-			margin-left: 10px;
-			padding-bottom: 20px;
-			border-bottom: 1px solid $light-gray;
-			
+		.custom-checkbox{
+			margin-left: 0 !important;
 		}
-
-
-
+		.size-col{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			.col-md-1{
+				width: 14.65333%;
+			}
+		}
+		.facilities-row{
+			.size-col{
+				border-top: 1px solid $light-gray;
+			}
+			.col-md-1{
+				width: 14.65333%;
+			}
+		}
+		.btn-group{
+			margin-top: 25px;
+			margin-bottom: 20px;
+			.btn-apply{
+				width: 115px;
+				border-radius: 4px;
+				height: 37px;
+				padding-top: 6px;
+				background-color: $airbnb-color;
+				border: none;
+				&:hover{
+					background: $airbnb-hover;
+				}
+			}
+			.btn-cancel{
+				margin-left: auto;
+				border-radius: 4px;
+				margin-right: 20px;
+				height: 37px;
+				width: 115px;
+			}
+		}
 
 	}//Filter Row
 

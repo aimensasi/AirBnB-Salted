@@ -10,6 +10,28 @@ class Listing < ActiveRecord::Base
 	
 	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) }
 
+	#filters scope
+
+	scope :filter, -> (filter, value) { where("#{filter} = ?", value)}
+
+	def self.filter(filters)
+		query = ""
+		filters.each do |filter|
+			query << " #{filter[filter]} = ?"
+		end
+		puts "Query #{query}"
+	end
+
+
+
+
+
+
+
+
+
+
+
 	def check_in
 		check_in_time.strftime("%I:%M %p")
 	end
