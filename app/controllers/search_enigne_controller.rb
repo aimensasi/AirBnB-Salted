@@ -6,22 +6,7 @@ class SearchEnigneController < ApplicationController
   end
 
   def create
-  	puts "params #{search_filters}"
-
-  	# @listings = Listing.all.by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
-  	# 									.by_guests(search_filters[:guest_no])
-  	# 									.by_room(search_filters[:room_type])
-  	# 									.by_beds_number(search_filters[:beds_number])
-  	# 									.by_bathrooms_number(search_filters[:bathrooms_number])
-  	# 									.by_wifi(search_filters[:wifi])
-  	# 									.by_kitchen(search_filters[:Kitchen])
-  	# 									.by_pool(search_filters[:pool])
-  	# 									.by_tv(search_filters[:tv])
-  	# 									.by_smoking(search_filters[:smoker])
-  	# 									.by_air_con(search_filters[:air_con])
-    @listings = Listing.filter(search_filters)
-    
-  	puts "Count Listing #{@listings.count}"
+  	@listings = Listing.filters(search_filters)
   	{:statue => 200, :template => render(:partial => 'listings/partials/listing', :layout => false)}.to_json
   end
 

@@ -108,7 +108,22 @@
 	.result-row{
 		margin-top: 20px;
 		.result-col{
-			
+			.price{
+				font-size: 14px;
+				color: #484848;
+				font-weight: 700;
+			}
+			.type{
+				color: #484848;
+				font-size: 15px;
+				font-weight: 200;
+				margin-left: 10px;
+			}
+			.rating {
+				span{
+					font-size: 13px;
+				}
+			}
 		}
 	}//Result Row
 

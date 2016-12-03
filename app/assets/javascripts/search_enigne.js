@@ -8,9 +8,8 @@ $(document).ready(function(){
 	var $btnCancel = $('.btn-cancel');
 	var $resultRow = $('.result-row');
 	var $btnApply = $('.btn-apply');
-
-	// More Filter Elements
-	var $wifi = $('input[name="wifi"]');
+	var $bathroomsNum = $('#bathrooms-number');
+	var $bedsNum = $('#beds-number');
 
 
 	//On Search Bar input show and hide the reseult panel
@@ -26,10 +25,6 @@ $(document).ready(function(){
 		hideFilterPanel();
 	});
 
-	//On canel button clicked hide and disable any filter
-	$btnCancel.on('click', function(){
-		hideFilterPanel();
-	});
 
 	//Handling Dates Filter Check In Check out and guests no
 	$('input[type="date"], #guests, .room_check').on('change', function(){
@@ -76,16 +71,57 @@ $(document).ready(function(){
 	}
 
 
+	//On canel button clicked hide and disable any filter
+	$btnCancel.on('click', function(){
+		hideFilterPanel();
+		delete dataJson['Kitchen']
+		delete dataJson['pool']
+		delete dataJson['wifi']
+		delete dataJson['tv']
+		delete dataJson['air-con']
+		delete dataJson['smoking']
+		delete dataJson[$bathroomsNum.attr('name')]
+		delete dataJson[$bedsNum.attr('name')]
+
+
+		if ($bathroomsNum.val() != 'Bathrooms Number') {
+			$bathroomsNum.val('Bathrooms Number');
+		}
+		if ($bedsNum.val() != 'Beds Number') {
+			$bedsNum.val('Beds Number');
+		}
+		if ($('input[name="wifi"]:checked').length > 0) {
+			$('input[name="wifi"]').prop('checked', false);
+		}
+		if ($('input[name="tv"]:checked').length > 0) {
+			$('input[name="tv"]').prop('checked', false);
+		}
+		if ($('input[name="Kitchen"]:checked').length > 0) {
+			$('input[name="Kitchen"]').prop('checked', false);
+		}
+		if ($('input[name="air-con"]:checked').length > 0) {
+			$('input[name="air-con"]').prop('checked', false);
+		}
+		if ($('input[name="pool"]:checked').length > 0) {
+			$('input[name="pool"]').prop('checked', false);
+		}
+		if ($('input[name="smoking"]:checked').length > 0) {
+			$('input[name="smoking"]').prop('checked', false);
+		}
+	});
+
 	$btnApply.on('click', function(){
 		hideFilterPanel();
-		var $bathroomsNum = $('#bathrooms-number');
-		var $bedsNum = $('#beds-number');
 
 		if ($bathroomsNum.val() != 'Bathrooms Number') {
 			dataJson[$bathroomsNum.attr('name')] = $bathroomsNum.val();
+		}else{
+			dataJson[$bathroomsNum.attr('name')] = null;
 		}
 		if ($bedsNum.val() != 'Beds Number') {
 			dataJson[$bedsNum.attr('name')] = $bedsNum.val();
+		}else{
+			dataJson[$bedsNum.attr('name')] = null;
 		}
 		if ($('input[name="wifi"]:checked').length > 0) {
 			dataJson['wifi'] = 1;
@@ -139,6 +175,7 @@ $(document).ready(function(){
 		});
 	}//Ajax function
 
+	//Hiding and Showing Result and filter panel 
 	function hideFilterPanel(){
 		if ($filterRow.hasClass('hidden')) {
 			$resultRow.addClass('hidden');

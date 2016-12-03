@@ -78,8 +78,18 @@ class Listing < ActiveRecord::Base
 		listings
 	end
 
-	def self.filter(search_filters)
-		where.or(by_pool(search_filters[:pool]), by_wifi(search_filters[:wifi]), by_tv(search_filters[:tv]))
+	def self.filters(search_filters)
+		 by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
+		.by_guests(search_filters[:guest_no])
+		.by_room(search_filters[:room_type])
+		.by_beds_number(search_filters[:beds_number])
+		.by_bathrooms_number(search_filters[:bathrooms_number])
+		.by_wifi(search_filters[:wifi])
+		.by_kitchen(search_filters[:Kitchen])
+		.by_pool(search_filters[:pool])
+		.by_tv(search_filters[:tv])
+		.by_smoking(search_filters[:smoker])
+		.by_air_con(search_filters[:air_con])
 	end
 
 	def check_in
