@@ -2,12 +2,17 @@ class SearchEnigneController < ApplicationController
   layout 'alt_layout'
   
   def new
-
   end
 
   def create
+    
   	@listings = Listing.filters(search_filters)
-  	{:statue => 200, :template => render(:partial => 'listings/partials/listing', :layout => false)}.to_json
+    @search_filters = search_filters
+    if request.xhr?
+      {:statue => 200, :template => render(:partial => 'listings/partials/listing', :layout => false)}.to_json
+    else
+      render :new
+    end
   end
 
 

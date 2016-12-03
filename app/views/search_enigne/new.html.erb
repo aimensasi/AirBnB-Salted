@@ -3,8 +3,10 @@
 
 	<div class="group-form row dates-row flex ">
 		<label for="dates" class="col-md-2" >Dates</label>
-		<input type="date" class="form-control" placeholder="Check in" id="check_in_date" name="check_in_date">
-		<input type="date" class="form-control" placeholder="Check out" id="check_out_date" name="check_out_date" disabled>
+		<input type="date" class="form-control date-input" 
+		placeholder="Check in" id="check_in_date" name="check_in_date" >
+		<input type="date" class="form-control date-input" placeholder="Check out"
+		 id="check_out_date" name="check_out_date" disabled value="<%= @search_filters[:check_in_date] %>">
 		<select class="custom-select form-control" id="guests" name="guest_no">
 		  <option selected>Guests</option>
 		  <% 16.times do |n| %>
@@ -101,7 +103,9 @@
 		</div>
 	</div><!--  Filter row -->
 
-	<div class="result-row" id="reseult"></div> <!-- Result Panel -->
+	<div class="result-row" id="reseult">
+		<%= render :partial => "listings/partials/listing", :layout => false %>
+	</div> <!-- Result Panel -->
 </div>
 
 

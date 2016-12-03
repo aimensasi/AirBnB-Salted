@@ -10,7 +10,8 @@ $(document).ready(function(){
 	var $btnApply = $('.btn-apply');
 	var $bathroomsNum = $('#bathrooms-number');
 	var $bedsNum = $('#beds-number');
-
+	var $datePlaceholder = $('.date-field');
+	var $dateField = $('.date');
 
 	//On Search Bar input show and hide the reseult panel
 	$searchBox.on('input', function(e){
@@ -25,9 +26,20 @@ $(document).ready(function(){
 		hideFilterPanel();
 	});
 
+	//hide placeholder input with date type
+	$dateField.on('focus change', function(){
+		$(this).next('.date-field').hide();
+	});
+	$dateField.on('focusout change', function(){
+		if ($(this).val() == "") {
+			$(this).next('.date-field').show();
+		}
+	});
+
+
 
 	//Handling Dates Filter Check In Check out and guests no
-	$('input[type="date"], #guests, .room_check').on('change', function(){
+	$('.form-control.date-input, #guests, .room_check').on('change', function(){
 		var $changed = $(this);
 		var attrName = $changed.attr('name');
 		dataJson[attrName] = $changed.val();
@@ -161,7 +173,7 @@ $(document).ready(function(){
 	function sendAjaxRequest(data){
 		console.log(data);
 		$.ajax({
-			url: '/search_enigne',
+			url: '/search',
 			type: 'POST',
 			data: JSON.stringify(data),
 			contentType: "application/json",

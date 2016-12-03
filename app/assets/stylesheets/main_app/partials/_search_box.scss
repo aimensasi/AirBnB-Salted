@@ -1,28 +1,106 @@
 
 .search-bar {
-	.search-box{
-		margin-top: 70px;
-		height: 70px;
-		border: 1px solid #ccc;
-	  border-radius: 4px;
-	  box-shadow: 0 1px 3px 0 #eee;
-	  width: 1050px;
-	  .where{
-	  	border: none;
-	  	border-right: 
-	  	label{
-	  		padding-top: 0;
-	  	  padding-bottom: 0;
-	  	  font-size: 15px;
-	  	  letter-spacing: -0.5px;
-	  	  white-space: nowrap;
-	  	}
-	  	input{
-	  		border: none;
-	  		border-right: 0;
-	  		border-top-right-radius: 0;
-	  		border-bottom-right-radius: 0;
-	  	}
-	  }
+	 margin-top: 70px;
+	 width: 1103px;
+	 height: 80px;
+	 box-shadow: 0 1px 3px 0 #eee;
+	 border: 1px solid #ccc;
+	 border-radius: 4px;
+	 padding: 0;
+ 	label{
+ 		padding: 0;
+ 		margin: 0;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    font-weight: 400;
+ 	}
+ 	input{
+ 		padding: 8px 0;
+ 		font-size: 19px;
+ 	}
+	.location, 
+	.dates,
+	.guests{
+		border: none;
+		border-right: 1px solid #ccc;
+		height: 80px;
+		padding: 15px 16px 8px;
 	}
+  .location{
+		width: 377px;
+  	input{
+  		border: none;
+  		font-weight: 300;
+  		border-radius: 0;
+  		height: 28px;
+			margin-top: 4px;
+  		padding-right: 5px;
+  		border-bottom: 1px solid transparent;
+  		transition: border-bottom-color .5s;
+  		&:focus{
+  			border-bottom-color: #007a87;
+  		}
+  	}
+  }//location
+  .dates{
+		width: 430px;
+		.check-out,
+		.check-in{
+			position: relative;
+			width: 165px;
+			.ml-2{
+				margin-left: 2.2rem;
+			}
+		}
+		input{
+			margin-top: 4px;
+			border: none;
+			width: 165px;
+			height: 30px;
+			cursor: pointer;
+			border-bottom: 1px solid transparent;
+			&:focus{
+				transition: border-bottom-color .5s;
+				border-bottom-color: #007a87;	
+			}
+		}
+		.date-field{
+			position: absolute;
+			top: 6px;
+			width: 122px;
+			background: #fff;
+			font-size: 19px;
+			font-weight: 200;
+	    color: #aaa;
+	    margin-right: 0.5em;
+	    pointer-events: none;
+		}
+  }//dates
+  .guests{
+		border: none;
+		select{
+			border: none;
+			border-radius: 0;
+	    width: 115.909px;
+	    height: 35px;
+	    padding: 5px 0;
+	    border-bottom: 1px solid transparent;
+	    transition: border-bottom-color .5s;
+	    &:focus{
+	    	border-bottom-color: #007a87;	
+	    }
+		}
+  }//guests
+  .arrow{
+  	font-size: 29px;
+  }
+  .btn-search{
+  	height: 53px;
+  	width: 120px;
+  	background-color: #ff5a5f;
+  	margin: auto 15px auto auto;
+  	color: #fff;
+  	font-weight: 100;
+  }
 }
