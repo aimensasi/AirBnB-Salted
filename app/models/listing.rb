@@ -13,7 +13,7 @@ class Listing < ActiveRecord::Base
 	#filters scope
 	scope :by_guests, -> (guests_no) {  		
 		return all unless guests_no.present?
-		where(:guest_no => guests_no)
+		where('guest_no >= ?', guests_no)
 	}
 
 	scope :by_room, -> (room_type) {  		

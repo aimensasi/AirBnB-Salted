@@ -35,11 +35,26 @@ $(document).ready(function(){
 	});
 
 	//Handling Dates Filter Check In Check out and guests no
-	$('input[type="date"], #guests').on('change', function(){
+	$('input[type="date"], #guests, .room_check').on('change', function(){
 		var $changed = $(this);
 		var attrName = $changed.attr('name');
 		dataJson[attrName] = $changed.val();
 
+		if (attrName == 'check_in_date' || attrName == 'check_out_date') {
+			handleDatesFilter($changed, attrName);
+		}else if (attrName == 'guest_no') {
+			if ($changed.val() == 'Guests') { return}
+			dataJson[attrName] = $changed.val();
+		}else if (attrName == 'room_type') {
+			var attrValue = $changed.attr('data-value');	
+			dataJson[attrName] = attrValue;
+		}
+		sendAjaxRequest(dataJson);
+	});
+
+
+
+	function handleDatesFilter($changed, attrName){
 		if (attrName == 'check_in_date') {
 				if ($changed.val().length == 0) {
 					$('input[name="check_out_date"]').val('').prop('disabled', true);	
@@ -60,15 +75,10 @@ $(document).ready(function(){
 				}else{
 					dataJson[attrName] = $changed.val();	
 				}
-		}else if (attrName == 'guest_no') {
-			dataJson[attrName] = $changed.val();
 		}
-		sendAjaxRequest(dataJson);
-	});
+	}
 
-
-
-
+//To Make An Ajax Call
 	function sendAjaxRequest(data){
 		console.log(data);
 		$.ajax({

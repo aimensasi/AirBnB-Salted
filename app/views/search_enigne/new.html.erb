@@ -15,18 +15,18 @@
 
 	<div class="group-form row room-row flex">
 		<label for="rooms" class="col-md-2 label" >Room Type</label>
-		<label class="custom-control custom-checkbox room-type entire-room">
-		  <input type="checkbox" class="custom-control-input" name="entire-house">
+		<label class="custom-control custom-radio room-type">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Entire House">
 		  <span class="custom-control-indicator checkbox-indicator"></span>
 		  <span class="custom-control-description">Entire House</span>
 		</label>
-		<label class="custom-control custom-checkbox room-type entire-room">
-		  <input type="checkbox" class="custom-control-input" name="private_room">
+		<label class="custom-control custom-radio room-type ">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Private Room">
 		  <span class="custom-control-indicator checkbox-indicator"></span>
 		  <span class="custom-control-description">Private Room</span>
 		</label>
-		<label class="custom-control custom-checkbox room-type entire-room">
-		  <input type="checkbox" class="custom-control-input" name="shared_room">
+		<label class="custom-control custom-radio room-type ">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Shared Room">
 		  <span class="custom-control-indicator checkbox-indicator"></span>
 		  <span class="custom-control-description">Shared Room</span>
 		</label>
@@ -43,12 +43,12 @@
 			<div class="flex col-md-10 offset-md-1 size-col">
 				<label for="rooms" class="col-md-1" >Size</label>
 				<div class="col-md-10">
-					<label class="custom-control custom-checkbox entire-room col-md-6">
+					<label class="custom-control custom-checkbox col-md-6">
 					  <input type="checkbox" class="custom-control-input" name="bathrooms_number">
 					  <span class="custom-control-indicator"></span>
 					  <span class="custom-control-description">Bathrooms</span>
 					</label>  
-					<label class="custom-control custom-checkbox entire-room col-md-6">
+					<label class="custom-control custom-checkbox col-md-6">
 					  <input type="checkbox" class="custom-control-input" name="beds_number">
 					  <span class="custom-control-indicator"></span>
 					  <span class="custom-control-description">Beds</span>
