@@ -38,10 +38,10 @@ class Listing < ActiveRecord::Base
 
 	scope :by_kitchen, -> (kitchen) {  		
 		return all unless kitchen.present?
-		where(:kitchen => kitchen)
+		where(:Kitchen => kitchen)
 	}
 
-	scope :by_pool, -> (pool) {  		
+	scope :by_pool, -> (pool) {	
 		return all unless pool.present?
 		where(:pool => pool)
 	}
@@ -76,6 +76,10 @@ class Listing < ActiveRecord::Base
 		end
 
 		listings
+	end
+
+	def self.filter(search_filters)
+		where.or(by_pool(search_filters[:pool]), by_wifi(search_filters[:wifi]), by_tv(search_filters[:tv]))
 	end
 
 	def check_in

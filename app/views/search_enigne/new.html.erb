@@ -38,21 +38,23 @@
 
 
 
-	<div class="filter-row row flex flex-col hidden">
+	<div class="filter-row row flex flex-col">
 		<div class="space-row row">
 			<div class="flex col-md-10 offset-md-1 size-col">
 				<label for="rooms" class="col-md-1" >Size</label>
 				<div class="col-md-10">
-					<label class="custom-control custom-checkbox col-md-6">
-					  <input type="checkbox" class="custom-control-input" name="bathrooms_number">
-					  <span class="custom-control-indicator"></span>
-					  <span class="custom-control-description">Bathrooms</span>
-					</label>  
-					<label class="custom-control custom-checkbox col-md-6">
-					  <input type="checkbox" class="custom-control-input" name="beds_number">
-					  <span class="custom-control-indicator"></span>
-					  <span class="custom-control-description">Beds</span>
-					</label>  
+					<select class="custom-select form-control" id="bathrooms-number" name="bathrooms_number">
+					  <option selected>Bathrooms Number</option>
+					  <% 16.times do |n| %>
+							<option value="<%= n + 1 %>"><%= pluralize(n + 1, 'Bathroom') %></option>
+					  <% end %>
+					</select>
+					<select class="custom-select form-control" id="beds-number" name="beds_number">
+					  <option selected>Beds Number</option>
+					  <% 16.times do |n| %>
+							<option value="<%= n + 1 %>"><%= pluralize(n + 1, 'Bed') %></option>
+					  <% end %>
+					</select>
 				</div>
 			</div>
 		</div><!--  space row -->
@@ -71,7 +73,7 @@
 					  <span class="custom-control-description">Tv</span>
 					</label> 
 					<label class="custom-control custom-checkbox col-md-6 mb-2">
-					  <input type="checkbox" class="custom-control-input" name="kitchen">
+					  <input type="checkbox" class="custom-control-input" name="Kitchen">
 					  <span class="custom-control-indicator"></span>
 					  <span class="custom-control-description">Kitchen</span>
 					</label>  

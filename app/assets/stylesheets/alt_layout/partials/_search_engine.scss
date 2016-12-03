@@ -55,6 +55,13 @@
 		}
 	}//Filter Button
 	.filter-row{
+		.space-row{
+			.custom-select.form-control{
+				width: 33%;
+    		margin-right: 30px;
+    		border-radius: 0px;
+			}
+		}
 		.custom-checkbox{
 			margin-left: 0 !important;
 		}

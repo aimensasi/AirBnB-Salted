@@ -7,6 +7,10 @@ $(document).ready(function(){
 	var $filterRow = $('.filter-row');
 	var $btnCancel = $('.btn-cancel');
 	var $resultRow = $('.result-row');
+	var $btnApply = $('.btn-apply');
+
+	// More Filter Elements
+	var $wifi = $('input[name="wifi"]');
 
 
 	//On Search Bar input show and hide the reseult panel
@@ -19,19 +23,12 @@ $(document).ready(function(){
 	});
 	//On filter button clicked show and hide the filter options
 	$btnFilter.on('click', function(){
-		if ($filterRow.hasClass('hidden')) {
-			$resultRow.addClass('hidden');
-			$filterRow.removeClass('hidden');
-		}else{
-			$filterRow.addClass('hidden');
-			$resultRow.removeClass('hidden');
-		}
+		hideFilterPanel();
 	});
 
 	//On canel button clicked hide and disable any filter
 	$btnCancel.on('click', function(){
-		$filterRow.addClass('hidden');
-		$resultRow.removeClass('hidden');
+		hideFilterPanel();
 	});
 
 	//Handling Dates Filter Check In Check out and guests no
@@ -43,7 +40,7 @@ $(document).ready(function(){
 		if (attrName == 'check_in_date' || attrName == 'check_out_date') {
 			handleDatesFilter($changed, attrName);
 		}else if (attrName == 'guest_no') {
-			if ($changed.val() == 'Guests') { return}
+			if ($changed.val() == 'Guests') { return }
 			dataJson[attrName] = $changed.val();
 		}else if (attrName == 'room_type') {
 			var attrValue = $changed.attr('data-value');	
@@ -78,6 +75,52 @@ $(document).ready(function(){
 		}
 	}
 
+
+	$btnApply.on('click', function(){
+		hideFilterPanel();
+		var $bathroomsNum = $('#bathrooms-number');
+		var $bedsNum = $('#beds-number');
+
+		if ($bathroomsNum.val() != 'Bathrooms Number') {
+			dataJson[$bathroomsNum.attr('name')] = $bathroomsNum.val();
+		}
+		if ($bedsNum.val() != 'Beds Number') {
+			dataJson[$bedsNum.attr('name')] = $bedsNum.val();
+		}
+		if ($('input[name="wifi"]:checked').length > 0) {
+			dataJson['wifi'] = 1;
+		}else{
+			dataJson['wifi'] = 0;
+		}
+		if ($('input[name="tv"]:checked').length > 0) {
+			dataJson['tv'] = 1;
+		}else{
+			dataJson['tv'] = 0;
+		}
+		if ($('input[name="Kitchen"]:checked').length > 0) {
+			dataJson['Kitchen'] = 1;
+		}else{
+			dataJson['Kitchen'] = 0;
+		}
+		if ($('input[name="air-con"]:checked').length > 0) {
+			dataJson['air-con'] = 1;
+		}else{
+			dataJson['air-con'] = 0;
+		}
+		if ($('input[name="pool"]:checked').length > 0) {
+			dataJson['pool'] = 1;
+		}else{
+			dataJson['pool'] = 0;
+		}
+		if ($('input[name="smoking"]:checked').length > 0) {
+			dataJson['smoking'] = 1;
+		}else{
+			dataJson['smoking'] = 0;
+		}
+
+		sendAjaxRequest(dataJson);
+	});
+
 //To Make An Ajax Call
 	function sendAjaxRequest(data){
 		console.log(data);
@@ -95,5 +138,15 @@ $(document).ready(function(){
 			}
 		});
 	}//Ajax function
+
+	function hideFilterPanel(){
+		if ($filterRow.hasClass('hidden')) {
+			$resultRow.addClass('hidden');
+			$filterRow.removeClass('hidden');
+		}else{
+			$filterRow.addClass('hidden');
+			$resultRow.removeClass('hidden');
+		}
+	}
 
 });//On Document Ready Function
