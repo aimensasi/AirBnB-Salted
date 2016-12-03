@@ -1,3 +1,9 @@
+<% if @listings.empty? %>
+  <div class="col-md-6 result-col">
+    <h3 class="title">No results</h3>
+    <p class="leads">Try adjusting your search filters</p>
+  </div>
+<% else %>
 <% @listings.each do |listing| %>
   <div class="col-md-6 result-col">
     <div class="listing">
@@ -27,4 +33,7 @@
       </div>  
     </div> <!-- listing -->  
   </div>
+<% end %>  
 <% end %>
+
+

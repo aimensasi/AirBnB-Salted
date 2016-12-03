@@ -11,31 +11,6 @@ class Listing < ActiveRecord::Base
 	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) }
 
 	#filters scope
- 	scope :avaliable, -> (check_in, check_out) { 
-		return all unless check_in.present? && check_out.present?
-		includes(:reservations).references(:reservations).where.or(
-		 		 	:reservations => {:check_in_date => check_in..check_out,
-		 		 									 :check_out_date => check_in..check_out})
-	}
-
-	# scope :not_reserved, -> (check_in, check_out) {
-	# 	hello = (
-	# 		<<-SQL
-	# 					SELECT * 
-	# 						FROM listings l
-	# 					WHERE NOT EXISTS ( SELECT r.listing_id 
-	# 										FROM reservations r 
-	# 									WHERE r.listing_id = l.id 
-	# 										OR r.check_in_date BETWEEN '#{check_in}' AND '#{check_out}' 
-	# 								 		OR r.check_out_date BETWEEN '#{check_in}' AND '#{check_out}');
-	#       SQL
-	# 					  )
-	# 	byebug
-	# }
-
-
-	scope :by_dates, -> (check_in, check_out) { where.or(avaliable(check_in, check_out), not_reserved) }
-
 	scope :by_guests, -> (guests_no) {  		
 		return all unless guests_no.present?
 		where(:guest_no => guests_no)
@@ -86,23 +61,19 @@ class Listing < ActiveRecord::Base
 		where(:smoker => smoker)
 	}
 
-
-
-	def self.not_reserved(check_in, check_out)
+	def self.by_dates(check_in, check_out)
 		return all unless check_in.present? && check_out.present?
 
-		listings = all.to_a
+		listings = all
 		
 		reserved = includes(:reservations)
 						.references(:reservations)
 						.where.or(:reservations => {:check_in_date => check_in..check_out,
 																			  :check_out_date => check_in..check_out})
 
-		puts "Count Before #{listings.count}"
 		if !reserved.empty?
 			listings = 	where.not(:id => reserved.ids)
 		end
-		puts "Count After #{listings.count}"
 
 		listings
 	end
