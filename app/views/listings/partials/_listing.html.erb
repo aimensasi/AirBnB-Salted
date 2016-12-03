@@ -1,0 +1,30 @@
+<% @listings.each do |listing| %>
+  <div class="col-md-6 result-col">
+    <div class="listing">
+      <div class="img">
+        <%
+          img_url = listing.avatars.first.avatar.url
+          res = Net::HTTP.get_response(URI.parse(img_url))
+          img_url = '/assets/no-photo.png' unless res.code.to_f >= 200 && res.code.to_f < 400 #good codes will be betweem 200 - 399
+        %>
+        <%= link_to listing_path(listing) do %>
+          <img src="<%= img_url %>" alt="listing" width="350" height="233">
+        <% end %>
+      </div>
+      <div class="info flex">
+        <span class="price"><%= number_to_currency listing.price_per_night %>  </span>
+        <span class="type"><%= listing.room_type %>  <%= listing.property_type %>  <%= listing.state %></span>
+      </div>
+      <!-- Empty Star &#9734; -->
+      <!-- Full Star &#9733; -->
+      <div class="rating">
+        <span class="full-star">&#9733;</span>
+        <span class="full-star">&#9733;</span>
+        <span class="full-star">&#9733;</span>
+        <span class="full-star">&#9733;</span>
+        <span class="empty-star">&#9733;</span>
+        <span>166 reviews</span>
+      </div>  
+    </div> <!-- listing -->  
+  </div>
+<% end %>

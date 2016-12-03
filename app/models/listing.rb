@@ -11,13 +11,30 @@ class Listing < ActiveRecord::Base
 	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) }
 
 	#filters scope
- 	scope :by_dates, -> (check_in, check_out) { 
+ 	scope :avaliable, -> (check_in, check_out) { 
 		return all unless check_in.present? && check_out.present?
-		includes(:reservations).
-		references(:reservations).
-		where.not(:reservations => {:check_in_date => check_in..check_out,
-																:check_out_date => check_in..check_out})
+		includes(:reservations).references(:reservations).where.or(
+		 		 	:reservations => {:check_in_date => check_in..check_out,
+		 		 									 :check_out_date => check_in..check_out})
 	}
+
+	# scope :not_reserved, -> (check_in, check_out) {
+	# 	hello = (
+	# 		<<-SQL
+	# 					SELECT * 
+	# 						FROM listings l
+	# 					WHERE NOT EXISTS ( SELECT r.listing_id 
+	# 										FROM reservations r 
+	# 									WHERE r.listing_id = l.id 
+	# 										OR r.check_in_date BETWEEN '#{check_in}' AND '#{check_out}' 
+	# 								 		OR r.check_out_date BETWEEN '#{check_in}' AND '#{check_out}');
+	#       SQL
+	# 					  )
+	# 	byebug
+	# }
+
+
+	scope :by_dates, -> (check_in, check_out) { where.or(avaliable(check_in, check_out), not_reserved) }
 
 	scope :by_guests, -> (guests_no) {  		
 		return all unless guests_no.present?
@@ -71,22 +88,24 @@ class Listing < ActiveRecord::Base
 
 
 
-	def self.filter(filters)
-		query = ""
-		args = ""
-		dates_query = ""
-		filters.each do |filter|
-			puts "FIlter #{filter}"
-			query << " #{filter[:name]} = ?"
-			args <<  "#{filter[:value]} "
-			dates_query = "#{filter[:name]} Between ?" if condition
+	def self.not_reserved(check_in, check_out)
+		return all unless check_in.present? && check_out.present?
+
+		listings = all.to_a
+		
+		reserved = includes(:reservations)
+						.references(:reservations)
+						.where.or(:reservations => {:check_in_date => check_in..check_out,
+																			  :check_out_date => check_in..check_out})
+
+		puts "Count Before #{listings.count}"
+		if !reserved.empty?
+			listings = 	where.not(:id => reserved.ids)
 		end
-		puts "Query #{query}"
-		puts "Args #{args.split(' ')}"
-		# where(query, args)
+		puts "Count After #{listings.count}"
+
+		listings
 	end
-
-
 
 	def check_in
 		check_in_time.strftime("%I:%M %p")
@@ -100,4 +119,13 @@ class Listing < ActiveRecord::Base
 		updated_at.strftime("On %B %e, %Y")
 	end
 end
+
+
+
+
+
+
+
+
+# SELECT * FROM listings LEFT JOIN reservations ON listings.id = reservations.listing_id WHERE (reservations.check_in_date NOT BETWEEN '2016-12-02 00:00:00' AND '2016-12-03 00:00:00' OR reservations.check_out_date NOT BETWEEN '2016-12-02 00:00:00' AND '2016-12-03 00:00:00');
 

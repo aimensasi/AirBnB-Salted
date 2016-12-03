@@ -77,6 +77,7 @@ $(document).ready(function(){
 			data: JSON.stringify(data),
 			contentType: "application/json",
 			success: function(data){
+				$('#reseult').html(data);
 				console.log(data);
 			},
 			error: function(err){
@@ -85,4 +86,4 @@ $(document).ready(function(){
 		});
 	}//Ajax function
 
-});
+});//On Document Ready Function

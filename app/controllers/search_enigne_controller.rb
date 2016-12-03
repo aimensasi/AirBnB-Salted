@@ -7,18 +7,22 @@ class SearchEnigneController < ApplicationController
 
   def create
   	puts "params #{search_filters}"
+  	@listings = Listing.not_reserved(search_filters[:check_in_date], search_filters[:check_out_date])
+  	puts "Listing #{@listings}"
 
-  	listings = Listing.by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
-  										.by_guests(search_filters[:guest_no])
-  										.by_room(search_filters[:room_type])
-  										.by_beds_number(search_filters[:beds_number])
-  										.by_bathrooms_number(search_filters[:bathrooms_number])
-  										.by_wifi(search_filters[:wifi])
-  										.by_kitchen(search_filters[:kitchen])
-  										.by_pool(search_filters[:pool])
-  										.by_tv(search_filters[:tv])
-  										.by_smoking(search_filters[:smoker])
-  										.by_air_con(search_filters[:air_con])
+  	# @listings = Listing.all.by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
+  	# 									.by_guests(search_filters[:guest_no])
+  	# 									.by_room(search_filters[:room_type])
+  	# 									.by_beds_number(search_filters[:beds_number])
+  	# 									.by_bathrooms_number(search_filters[:bathrooms_number])
+  	# 									.by_wifi(search_filters[:wifi])
+  	# 									.by_kitchen(search_filters[:kitchen])
+  	# 									.by_pool(search_filters[:pool])
+  	# 									.by_tv(search_filters[:tv])
+  	# 									.by_smoking(search_filters[:smoker])
+  	# 									.by_air_con(search_filters[:air_con])
+  	puts "Count Listing #{@listings.count}"
+  	{:statue => 200, :template => render(:partial => 'listings/partials/listing', :layout => false)}.to_json
   end
 
 
