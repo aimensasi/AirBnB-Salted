@@ -23,12 +23,24 @@
             <a class="navbar-brand" href="/">
               <img src="/assets/logo.png" width="40" height="40" alt="logo">
             </a>
-            <form class="search-nav">
+            <form class="search-nav" action="/search" method="post" name="form">
+              <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" class="hidden">
               <div class="group-form flex">
-                <i class="search-icon"><img src="/assets/search_icon.png" width="30" height="30"></i>
-                <input type="text" name="query" class="search-box" placeholder="Search...">  
+                <a href="#" class="search-icon" onClick="form.submit();">
+                  <img src="/assets/search_icon.png" width="30" height="30">  
+                </a>
+                <input type="text" name="query" id="search-box" class="search-box" placeholder="Search...">  
+                <!-- Search Panel -->
+               <!--  <div class="list-group" id="instance-panel">
+                  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+                </div> -->
+                <!--  End Of Search panel-->
               </div>
             </form>
+
             <a class="nav-item nav-link active" href="/listings/new">Become a Host <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#listings-row">Listings</a>
             

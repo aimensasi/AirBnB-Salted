@@ -1,0 +1,141 @@
+<div class="col-md-8 mt-3 search-engine">
+
+
+	<div class="group-form row dates-row flex ">
+		<label for="dates" class="col-md-2" >Dates</label>
+		<input type="date" class="form-control date-input" id="check_in_date" name="check_in_date" 
+		value="<%= params[:check_in_date] %>">
+		<input type="date" class="form-control date-input" id="check_out_date" name="check_out_date" 
+		value="<%= params[:check_out_date] %>" disabled>
+		<select class="custom-select form-control" id="guests" name="guest_no">
+	    <% if params[:guest_no].present? %>
+	    	<option value="<%= params[:guest_no] %>" selected><%= pluralize(params[:guest_no], 'Guest') %></option>
+	    <% else %>
+	    	<option selected>Guests</option>
+	  	<% end %>
+		  <% 16.times do |n| %>
+        <option value="<%= n + 1 %>"><%= pluralize(n == 15 ? "#{n + 1}+" : n + 1 , "Guest") %></option>
+      <% end %>
+		</select>
+	</div> <!-- Dates Row -->
+
+	<div class="group-form row room-row flex">
+		<label for="rooms" class="col-md-2 label" >Room Type</label>
+		<label class="custom-control custom-radio room-type">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Entire House">
+		  <span class="custom-control-indicator checkbox-indicator"></span>
+		  <span class="custom-control-description">Entire House</span>
+		</label>
+		<label class="custom-control custom-radio room-type ">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Private Room">
+		  <span class="custom-control-indicator checkbox-indicator"></span>
+		  <span class="custom-control-description">Private Room</span>
+		</label>
+		<label class="custom-control custom-radio room-type ">
+		  <input type="radio" class="custom-control-input room_check" name="room_type" data-value="Shared Room">
+		  <span class="custom-control-indicator checkbox-indicator"></span>
+		  <span class="custom-control-description">Shared Room</span>
+		</label>
+	</div> <!-- Room Row -->
+
+	<div class="group-form row filter">
+		<button class="btn btn-default btn-filter">Filter</button>
+	</div>
+
+
+
+	<div class="filter-row row flex flex-col hidden">
+		<div class="space-row row">
+			<div class="flex col-md-10 offset-md-1 size-col">
+				<label for="rooms" class="col-md-1" >Size</label>
+				<div class="col-md-10">
+					<select class="custom-select form-control" id="bathrooms-number" name="bathrooms_number">
+					  <option selected>Bathrooms Number</option>
+					  <% 16.times do |n| %>
+							<option value="<%= n + 1 %>"><%= pluralize(n + 1, 'Bathroom') %></option>
+					  <% end %>
+					</select>
+					<select class="custom-select form-control" id="beds-number" name="beds_number">
+					  <option selected>Beds Number</option>
+					  <% 16.times do |n| %>
+							<option value="<%= n + 1 %>"><%= pluralize(n + 1, 'Bed') %></option>
+					  <% end %>
+					</select>
+				</div>
+			</div>
+		</div><!--  space row -->
+		<div class="facilities-row row">
+			<div class="flex col-md-10 offset-md-1 size-col">
+				<label for="rooms" class="col-md-1" >Facilities</label>
+				<div class="col-md-10">
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="wifi">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Wireless Internet</span>
+					</label>
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="tv">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Tv</span>
+					</label> 
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="Kitchen">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Kitchen</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="air-con">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Air Conditioner</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="pool">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Pool</span>
+					</label>  
+					<label class="custom-control custom-checkbox col-md-6 mb-2">
+					  <input type="checkbox" class="custom-control-input" name="smoking">
+					  <span class="custom-control-indicator"></span>
+					  <span class="custom-control-description">Smooking Allowed</span>
+					</label>  
+				</div>
+			</div>	
+		</div><!--  facilities row -->
+		<div class="btn-group flex">	
+			<button class="btn btn-secondary btn-cancel">cancel</button>
+			<button class="btn btn-primary btn-apply">Apply</button>
+		</div>
+	</div><!--  Filter row -->
+
+	<div class="result-row" id="reseult">
+		<%= render :partial => "listings/partials/listing", :layout => false %>
+	</div> <!-- Result Panel -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

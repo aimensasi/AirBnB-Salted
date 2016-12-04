@@ -36,6 +36,27 @@
 		}
 		.search-icon{
 			margin-top: 2px;
+			cursor: pointer;
+		}
+		.list-group{
+			opacity: 0;
+			width: 50%;
+			position: absolute;
+			z-index: 99999;
+			top: -700px;
+			left: 181px;
+			font-size: 14px;
+			font-weight: 200;
+			transition: opacity .4s .3s, top 1s;
+
+			a{
+				transition: padding-left .5s;
+				&:hover{
+					background: $airbnb_color;
+					color: $white !important;
+					padding-left: 40px;
+				}
+			}
 		}
 	}
 }

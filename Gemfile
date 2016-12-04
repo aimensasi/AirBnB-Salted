@@ -81,3 +81,6 @@ gem "letter_opener", :group => :development
 #payment by braintree
 gem "braintree", "~> 2.69.0"
 
+#search engine gem
+gem 'pg_search'
+

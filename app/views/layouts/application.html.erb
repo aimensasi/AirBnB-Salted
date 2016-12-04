@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <link rel="icon" href="https://www.airbnb.com/favicon.ico">
     <title>Welcome to the world of trips.</title>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= javascript_include_tag 'https://use.fontawesome.com/586a7bc924.js' %>
     <%= stylesheet_link_tag 'main_app/application' %>
   </head>
@@ -48,36 +48,39 @@
           <p class="leads">Homes, experiences, and places — all in one app.</p>
         </div>
       </div>
-      <div class="row search-bar">
-        <div class="search-box container">
-          <form class="flex">
-            <div class="where flex flex-col">
-              <label for="where">Where</label>
-              <input type="text" name="where" class="">
+      <div class="search-bar container">
+        <form class="flex" action="/search" method="post">
+          <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" class="hidden">
+          <div class="location flex flex-col">
+            <label for="where">Where</label>
+            <input type="text" name="query">
+          </div>
+          <div class="dates flex flex-col">
+            <label for="where">When</label>
+            <div class="dates-input flex">
+              <div class="check-in mr-2">
+                <input type="date" name="check_in_date" class="date">
+                <span  class="date-field">Check In</span>
+              </div>
+              <i class="material-icons arrow">arrow_forward</i>
+              <div class="check-out ml-2">
+                <input type="date" name="check_out_date" class="date">
+                <span  class="date-field">Check Out</span>
+              </div>
             </div>
-            <div class="when">
-              <label for="where">When</label>
-              <input type="date" name="where" placeholder="where" class="form">
-              <input type="date" name="where" placeholder="where" class="form">
-            </div>
-            <div class="guests">
-              <label for="where">Guests</label>
-              <select class="custom-select">
-                <option selected value="1">1 Guest</option>
-                <option value="2">2 Guests</option>
-                <option value="3">3 Guests</option>
-                <option value="4">4 Guests</option>
-                <option value="5">5 Guests</option>
-                <option value="6">6 Guests</option>
-                <option value="7">7 Guests</option>
-                <option value="8">8 Guests</option>
-                <option value="9">9 Guests</option>
-                <option value="10">10+ Guests</option>
-              </select>
-            </div>
-            <input type="submit" id="search" class="btn btn-info">
-          </form>
-        </div>
+          </div>
+          <div class="guests flex flex-col">
+            <label for="where">Guests</label>
+            <select class="custom-select" name="guest_no">
+              <option selected value="1">1 Guest</option>
+              <% 16.times do |n| %>
+                <% next if n == 0 %>
+                <option value="<%= n + 1 %>"><%= pluralize(n == 15 ? "#{n + 1}+" : n + 1 , "Guests") %></option>
+              <% end %>
+            </select>
+          </div>
+          <input type="submit" id="search" class="btn btn-search" value="Search">
+        </form>
       </div>
       <div class="row listings">
         <div class="container">
