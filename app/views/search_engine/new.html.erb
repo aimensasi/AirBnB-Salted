@@ -3,15 +3,19 @@
 
 	<div class="group-form row dates-row flex ">
 		<label for="dates" class="col-md-2" >Dates</label>
-		<input type="date" class="form-control date-input" 
-		placeholder="Check in" id="check_in_date" name="check_in_date" >
-		<input type="date" class="form-control date-input" placeholder="Check out"
-		 id="check_out_date" name="check_out_date" disabled value="<%= @search_filters[:check_in_date] %>">
+		<input type="date" class="form-control date-input" id="check_in_date" name="check_in_date" 
+		value="<%= params[:check_in_date] %>">
+		<input type="date" class="form-control date-input" id="check_out_date" name="check_out_date" 
+		value="<%= params[:check_out_date] %>" disabled>
 		<select class="custom-select form-control" id="guests" name="guest_no">
-		  <option selected>Guests</option>
+	    <% if params[:guest_no].present? %>
+	    	<option value="<%= params[:guest_no] %>" selected><%= pluralize(params[:guest_no], 'Guest') %></option>
+	    <% else %>
+	    	<option selected>Guests</option>
+	  	<% end %>
 		  <% 16.times do |n| %>
-				<option value="<%= n + 1 %>"><%= n + 1 %></option>
-		  <% end %>
+        <option value="<%= n + 1 %>"><%= pluralize(n == 15 ? "#{n + 1}+" : n + 1 , "Guest") %></option>
+      <% end %>
 		</select>
 	</div> <!-- Dates Row -->
 

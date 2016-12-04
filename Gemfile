@@ -82,5 +82,5 @@ gem "letter_opener", :group => :development
 gem "braintree", "~> 2.69.0"
 
 #search engine gem
-# gem 'pg_search', '~> 1.0', '>= 1.0.6'
+gem 'pg_search'
 

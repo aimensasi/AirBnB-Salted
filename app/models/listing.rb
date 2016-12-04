@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+	include PgSearch
 
 	belongs_to :owner, :class_name => :User, :foreign_key => :user_id
 	has_many :avatars, :class_name => :ListingImage, :dependent => :destroy
@@ -8,9 +9,16 @@ class Listing < ActiveRecord::Base
 
 	validates_presence_of :user_id, :room_type, :property_type, :country, :state, :zip_code
 	
-	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) }
+	pg_search_scope :pg_full_address, :against => [:country, :state, :address]
 
+	scope :top, -> { joins(:avatars).order('price_per_night DESC').limit(5) } 
 	#filters scope
+
+	scope :by_address, -> (query) {
+		return all unless query.present?
+		pg_full_address(query)
+	}
+
 	scope :by_guests, -> (guests_no) {  		
 		return all unless guests_no.present?
 		where('guest_no >= ?', guests_no)
@@ -79,7 +87,8 @@ class Listing < ActiveRecord::Base
 	end
 
 	def self.filters(search_filters)
-		 by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
+		 by_address(search_filters[:query])
+		.by_dates(search_filters[:check_in_date], search_filters[:check_out_date])
 		.by_guests(search_filters[:guest_no])
 		.by_room(search_filters[:room_type])
 		.by_beds_number(search_filters[:beds_number])
@@ -102,6 +111,10 @@ class Listing < ActiveRecord::Base
 
 	def last_update
 		updated_at.strftime("On %B %e, %Y")
+	end
+
+	def full_address
+		"#{address}, #{state}, #{country}"
 	end
 end
 

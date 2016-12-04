@@ -12,6 +12,7 @@ $(document).ready(function(){
 	var $bedsNum = $('#beds-number');
 	var $datePlaceholder = $('.date-field');
 	var $dateField = $('.date');
+	var $checkOutDate = $('#check_out_date');
 
 	//On Search Bar input show and hide the reseult panel
 	$searchBox.on('input', function(e){
@@ -36,7 +37,9 @@ $(document).ready(function(){
 		}
 	});
 
-
+	if ($checkOutDate.length && $checkOutDate.val().length > 0) {
+		$checkOutDate.prop('disabled', false);	
+	}
 
 	//Handling Dates Filter Check In Check out and guests no
 	$('.form-control.date-input, #guests, .room_check').on('change', function(){
@@ -120,6 +123,8 @@ $(document).ready(function(){
 		if ($('input[name="smoking"]:checked').length > 0) {
 			$('input[name="smoking"]').prop('checked', false);
 		}
+
+		sendAjaxRequest(dataJson);
 	});
 
 	$btnApply.on('click', function(){
