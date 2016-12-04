@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-Ruby '2.2.6'
+ruby "2.3.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -86,4 +86,6 @@ gem 'pg_search'
 
 #unicorn web server
 gem 'unicorn'
+#12 factor 
+gem 'rails_12factor', group: :production
 
