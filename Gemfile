@@ -84,3 +84,6 @@ gem "braintree", "~> 2.69.0"
 #search engine gem
 gem 'pg_search'
 
+#unicorn web server
+gem 'unicorn'
+
