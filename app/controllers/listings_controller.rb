@@ -4,8 +4,7 @@ class ListingsController < ApplicationController
   layout :resolve_layout
 
   def index
-    # @listings = Listing.top
-    render 'listings/destroy.html.erb'
+    @listings = Listing.top
   end
 
   def show

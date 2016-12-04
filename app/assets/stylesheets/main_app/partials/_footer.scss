@@ -1,0 +1,29 @@
+.footer{
+	margin-top: auto;
+	footer{
+		height: 70px;
+		padding: 20px;
+		border: none;
+		border-top: 1px solid  $border-secondary;
+	}
+	.footer-logo{
+		margin-right: auto;
+		h1{
+			margin-top: 10px;
+			margin-left: 15px;
+			font-size: 18px;
+			font-weight: 300;
+			color: $border-secondary;
+		}
+	}
+}
+.footer-nav{
+	a{
+		color: $border-secondary;	
+		font-size: 16px;
+		margin-right: 20px;
+	}	
+	.fa-lg{
+		font-size: 20px;
+	}
+}
